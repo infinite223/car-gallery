@@ -1,0 +1,44 @@
+nav{
+    position: -webkit-sticky;
+    position: sticky;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 20%;
+    height: 100vh;
+
+    background: rgb(0,2,36);
+    background: linear-gradient(119deg, rgb(4, 9, 97) 20%, rgba(25, 57, 128, 0.931) 54%, rgba(14,48,94,1) 100%);
+
+    color: white;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    font-family: 'Courier New', monospace;
+    
+    h1{
+        letter-spacing: .4rem;  
+        color: rgba(216, 207, 207, 0.959);    
+    }
+    p{
+        font-size: 18px;
+        color:rgb(107, 212, 116);
+        margin-bottom: 50px; 
+    }
+    h3{        
+        font-weight: 900;
+        color: rgb(14, 255, 86);
+    }
+    text{
+        padding: 0rem 2rem;
+    }
+
+    .navbar__icon{
+        position: absolute;
+        left: 20px;
+        top:20px;
+        cursor:all-scroll;
+    }
+}
