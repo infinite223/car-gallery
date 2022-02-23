@@ -1,0 +1,9 @@
+.App{
+  display: flex;
+  cursor: none;
+  background-color:rgba(34, 72, 148, 0.521);
+
+  @media screen and (max-width:1050px){
+    flex-direction: column;
+  }
+}
