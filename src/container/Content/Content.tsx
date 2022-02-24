@@ -1,10 +1,10 @@
 import React from 'react'
+import { Car } from '../index'
 import './Content.scss';
-
-const Content = props => {
+const Content = () => {
   return (
     <div className='content'>
-      <h1>uuuuua</h1>
+      <Car/><Car/><Car/>
     </div>
   )
 }
