@@ -1,6 +1,5 @@
-nav{
-    position: -webkit-sticky;
-    position: sticky;
+nav{  
+    position: fixed;
     display: flex;
     flex-direction: column;
     align-items: center;
