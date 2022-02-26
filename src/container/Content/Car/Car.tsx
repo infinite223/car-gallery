@@ -6,7 +6,8 @@ const Car = ({ model , engine }) => {
   return (
     <div className='car'>
       <div className='car__image'>
-        <UploadForm/>
+        {//<UploadForm/>
+        }
       </div>    
       <div className='car__info'>
         <div className='car__info-name'>{model}</div>
