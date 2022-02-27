@@ -1,7 +1,4 @@
-.add__car{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.addCar{
     flex-direction: column;
 
     width: 250px;
@@ -12,6 +9,7 @@
     border-radius: 1rem;
 
     font-size: 70px;
+
 
     &:hover{
         background-color: rgba(150, 174, 231,.65);
@@ -24,4 +22,74 @@
         height: 300px;
         
     }
+}
+
+.addCar-form{
+    flex-direction: column;
+    position: fixed;
+    top:10%;
+    left: 35%;
+    z-index: 5;
+
+    width: 25%;
+    height: 70vh;
+    padding: 3rem;
+
+    background: rgb(0,2,36);
+    background: linear-gradient(259deg, rgb(4, 9, 97) 20%, rgba(25, 57, 128, 0.931) 54%, rgba(14,48,94,1) 100%);
+    border-radius: 15px;
+
+    font-size:20px;
+    color: rgba(255, 255, 255, 0.699);
+    font-family: 'Courier New', monospace;
+
+    h1{
+        padding: 0rem 4rem;
+        text-align: center;
+    }
+
+    .addCar__icon-button{
+        position: absolute;
+        bottom:-13px;
+        
+        width: 170px;
+        height: 40px;
+
+        background-color: rgba(103, 128, 182, 0.931);
+        border-radius: 20px;
+        
+        .addCar__icon-add{
+            width:70%;
+            height: 100%;
+
+            color: rgb(51, 42, 42);
+            font-weight: 700;
+
+            border-radius:  20px 0px 0px 20px;
+            &:hover{
+                background-color: rgb(14, 255, 86);
+                transition: all ease;
+                transition-duration: .5s;
+            } 
+        }
+
+        .addCar__icon-exit{
+            width: 30%;
+            height: 100%;
+
+            border-radius: 0px 20px 20px 0px;
+            &:hover{
+                background-color: rgb(231, 56, 50);
+                transition: all ease;
+                transition-duration: .5s;
+            }
+        }
+       
+    }
+}
+
+.flex{            
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
