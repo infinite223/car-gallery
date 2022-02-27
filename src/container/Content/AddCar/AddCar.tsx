@@ -8,6 +8,7 @@ import UnstyledInput from '../../../components/CustomInput.js'
 
 const AddCar = () => {
   const [toggleForm, setToggleForm] = useState(false)
+   const [addCar, setAddCar] = useState(false)
 
   return (
     <>
@@ -15,14 +16,14 @@ const AddCar = () => {
         {toggleForm&&
           <motion.div className='addCar-form flex' drag> 
             <div className='addCar__icon-button flex' >
-              <div className='addCar__icon-add flex'>ADD</div>
+              <div className='addCar__icon-add flex' onClick={()=>setAddCar(true)}>ADD</div>
               <div className='addCar__icon-exit flex' onClick={()=>setToggleForm(false)}>
                  <IoCloseOutline size={25}  color='black'/>
               </div>
             </div>
             <AiFillCar size={27} color="rgb(14, 255, 86)"/>
             <h1>Add Your Car</h1>
-            <UnstyledInput/>
+            <UnstyledInput addCar={addCar}/>
           </motion.div>
         }
     </>   

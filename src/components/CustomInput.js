@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, {useState} from 'react';
 import InputUnstyled from '@mui/base/InputUnstyled';
 import { styled } from '@mui/system';
 
@@ -38,12 +38,13 @@ const StyledInputElement = styled('input')(
 
   &:hover {
     background: ${theme.palette.mode === 'dark' ? '' : grey[100]};
-    border-color: rgb(14, 255, 86);;
+    border-color: rgb(14, 255, 86);
     opacity:1;
   }
 
   &:focus {
-    outline: 1.5px solid rgb(14, 255, 86);;
+    outline: 1.5px solid rgb(14, 255, 86);
+    background: ${theme.palette.mode === 'dark' ? '' : grey[100]};
     opacity:1;
   }
 `,
@@ -55,13 +56,21 @@ const CustomInput = React.forwardRef(function CustomInput(props, ref) {
   );
 });
 
-export default function UnstyledInput() {
+export default function UnstyledInput(props) {
+  const [model, setModel] = useState(null);
+  const [engine, setEngine] = useState(null);
+  const [power, setPower] = useState(null);
+  const [password, setPassword] = useState(null);
+  
+  if(props.addCar){
+    console.log(model+" "+engine+" "+power+" "+password)
+  }
   return (
     <>
-      <CustomInput aria-label="Demo input" placeholder="Type model car..." />
-      <CustomInput aria-label="Demo input" placeholder="Engine car..." />
-      <CustomInput aria-label="Demo input" placeholder="Car power  (HP/Nm)" />
-      <CustomInput aria-label="Demo input" placeholder="Password to gallery" />
+      <CustomInput onChange={(x)=>setModel(x.target.value)} aria-label="Demo input" placeholder="Type model car..." />
+      <CustomInput onChange={(x)=>setEngine(x.target.value)} aria-label="Demo input" placeholder="Engine car..." />
+      <CustomInput onChange={(x)=>setPower(x.target.value)} aria-label="Demo input" placeholder="Car power  (HP/Nm)" />
+      <CustomInput onChange={(x)=>setPassword(x.target.value)} aria-label="Demo input" placeholder="Password to gallery" />
     </>
   )
 }
