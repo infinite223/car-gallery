@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import InputUnstyled from '@mui/base/InputUnstyled';
 import { styled } from '@mui/system';
+import { db } from '../firebase/config'
+import { doc, setDoc } from "firebase/firestore"; 
 
 const blue = {
   100: '#DAECFF',
@@ -63,7 +65,10 @@ export default function UnstyledInput(props) {
   const [password, setPassword] = useState(null);
   
   if(props.addCar){
-    console.log(model+" "+engine+" "+power+" "+password)
+
+    const cityRef = doc(db, 'Car', model);
+    setDoc(cityRef, 
+       { model: model,engine: engine,power: power,password: password });
   }
   return (
     <>
