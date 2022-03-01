@@ -13,7 +13,7 @@ const Content = () => {
       const data = await getDocs(carsCollectionRef);
       setCars(data.docs.map((doc)=>({...doc.data(),id:doc.id})))
     }
-    
+    console.log(cars)
     getCars();
   });
 
@@ -23,7 +23,7 @@ const Content = () => {
         return (
           <Car model={car.model} engine={car.engine}/> 
         )
-      })}
+      })}     
       
       <AddCar/>  
     </div>

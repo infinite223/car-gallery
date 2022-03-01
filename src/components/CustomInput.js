@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
 import InputUnstyled from '@mui/base/InputUnstyled';
 import { styled } from '@mui/system';
-import { db } from '../firebase/config'
-import { doc, setDoc } from "firebase/firestore"; 
+
 
 const blue = {
   100: '#DAECFF',
@@ -58,24 +57,21 @@ const CustomInput = React.forwardRef(function CustomInput(props, ref) {
   );
 });
 
-export default function UnstyledInput(props) {
-  const [model, setModel] = useState(null);
-  const [engine, setEngine] = useState(null);
-  const [power, setPower] = useState(null);
-  const [password, setPassword] = useState(null);
-  
-  if(props.addCar){
+export default function UnstyledInput() {
+  const [model, setModel] = useState("");
+  const [engine, setEngine] = useState("");
+  const [power, setPower] = useState("");
+  const [password, setPassword] = useState("");
 
-    const cityRef = doc(db, 'Car', model);
-    setDoc(cityRef, 
-       { model: model,engine: engine,power: power,password: password });
-  }
-  return (
+  return {
+    model,engine,power,password,
+    render:(
     <>
       <CustomInput onChange={(x)=>setModel(x.target.value)} aria-label="Demo input" placeholder="Type model car..." />
       <CustomInput onChange={(x)=>setEngine(x.target.value)} aria-label="Demo input" placeholder="Engine car..." />
       <CustomInput onChange={(x)=>setPower(x.target.value)} aria-label="Demo input" placeholder="Car power  (HP/Nm)" />
       <CustomInput onChange={(x)=>setPassword(x.target.value)} aria-label="Demo input" placeholder="Password to gallery" />
     </>
-  )
+    )
+  }
 }
