@@ -18,9 +18,8 @@
     }
 
     @media screen and (max-width:754px){
-        width:80%;      
-        height: 300px;
-        
+        width:300px;      
+        height: 320px;           
     }
 }
 
@@ -87,8 +86,15 @@
                 transition-duration: .5s;
             }
         }
-       
     }
+    @media screen and (max-width:954px){
+        width:94%;       
+        padding: .5rem;    
+        height: 88%;   
+
+        left:3%;
+        top:6%
+     }
 }
 
 .flex{            

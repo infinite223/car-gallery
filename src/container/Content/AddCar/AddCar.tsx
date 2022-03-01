@@ -11,7 +11,7 @@ import { doc, addDoc, collection } from "firebase/firestore";
 const AddCar = () => {
   const [toggleForm, setToggleForm] = useState(false)
   const {render,model,engine,power,password} = UnstyledInput();
-  const [error, setError] = useState("");
+  const [error, setError] = useState("ojoj");
   const cityRef = collection(db, 'Car');
 
   const addNewCar = async () => {
@@ -37,7 +37,7 @@ const AddCar = () => {
             <AiFillCar size={27} color="rgb(14, 255, 86)"/>
             <h1>Add Your Car</h1>
             {render}
-            {error}
+            <div style={{color:"red"}}>{error}</div>
           </motion.div>
         }
     </>   
