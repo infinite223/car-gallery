@@ -1,12 +1,12 @@
 import './App.scss';
-import { Navbar,Content } from './container/index'
 import DotRing from "./components/DotRing/DotRing";
+import MainPage from './container/Pages/MainPage/MainPage.tsx';
+
 function App() {
   return (
-    <div className="App">
+    <div className="Pages">
       <DotRing/>
-      <Navbar/>
-      <Content/>
+      <MainPage/>
     </div>
   );
 }

@@ -4,13 +4,12 @@ import 'firebase/firestore';
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAiaGbD9o2GLYlmyOzF9iYC33E_m4A6FY0",
-  authDomain: "car-gallery-52b94.firebaseapp.com",
-  projectId: "car-gallery-52b94",
-  storageBucket: "car-gallery-52b94.appspot.com",
-  messagingSenderId: "943055012909",
-  appId: "1:943055012909:web:1874653aa04f0c916da4a4",
-  measurementId: "G-0GLPQW2GZD"
+  apiKey: "AIzaSyA_2BCUUrz8bDD9ODx9viyuGadzrjw7rsA",
+  authDomain: "car-galleryv2.firebaseapp.com",
+  projectId: "car-galleryv2",
+  storageBucket: "car-galleryv2.appspot.com",
+  messagingSenderId: "195384992128",
+  appId: "1:195384992128:web:f1dd4f27fe22c34fc62165"
   };
  const app = initializeApp(firebaseConfig);
 

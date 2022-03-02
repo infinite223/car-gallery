@@ -8,7 +8,7 @@
     height: 270px;
     margin: 2rem 1rem 0rem 1rem;
 
-    background-color: rgba(150, 174, 231,.4);
+    background-color: rgb(66, 101, 190);
     border-radius: 1rem;
     
     .car__image{
@@ -29,6 +29,13 @@
           width: 50%;
           text-align: center;
        }
+    }
+
+    
+    &:hover{
+        transform: scale(1.3);
+        transition: all ease;
+        transition-duration: .5s;
     }
 
     @media screen and (max-width:754px){

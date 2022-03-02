@@ -7,6 +7,7 @@ import { db } from '../../firebase/config'
 const Content = () => {
   const [cars, setCars] = useState([]);
   const carsCollectionRef = collection(db, "Car")
+  const [toggle, setToggle] = useState(false)
 
   useEffect(() => {
     const getCars = async () =>{  
@@ -15,7 +16,7 @@ const Content = () => {
     }
     console.log(cars)
     getCars();
-  });
+  },[toggle]);
 
   return (
     <div className='content'>
@@ -25,7 +26,7 @@ const Content = () => {
         )
       })}     
       
-      <AddCar/>  
+      <AddCar toggle={()=>setToggle(!toggle)}/>  
     </div>
   )
 }
