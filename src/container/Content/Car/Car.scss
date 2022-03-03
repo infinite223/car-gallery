@@ -22,7 +22,11 @@
        width: 100%;
        height: 20%;
 
-       color: white;
+       background-color: rgb(32, 59, 129);
+       border-radius: 0rem 0rem 1rem 1rem;
+
+       color: rgba(255, 255, 255, 0904);
+       
        
        .car__info-name, .car__info-stats{
           padding: 1rem;
@@ -33,13 +37,19 @@
 
     
     &:hover{
-        transform: scale(1.3);
+        transform: scale(1.1);
         transition: all ease;
         transition-duration: .5s;
     }
 
     @media screen and (max-width:754px){
         width:350px;      
-        height: 370px;    
+        height: 370px;   
+        
+        &:hover{
+            transform: scale(1);
+            transition: all ease;
+            transition-duration: .5s;
+        }
     }
 }

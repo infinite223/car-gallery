@@ -1,10 +1,12 @@
 import React from 'react'
-import UploadForm from '../../../components/UpLoadForm'
 import './Car.scss'
+import { useNavigate, useParams } from "react-router-dom";
 
-const Car = ({ model , engine }) => {
+const Car = ({ model, engine }) => {
+  let navigate = useNavigate(); 
+ 
   return (
-    <div className='car'>
+    <div className='car' onClick={()=> navigate("/CarGallery",{state:{model:model}})}>
       <div className='car__image'>
         {//<UploadForm/>
         }

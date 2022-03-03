@@ -11,7 +11,7 @@ import { doc, addDoc, collection } from "firebase/firestore";
 const AddCar = (props) => {
   const [toggleForm, setToggleForm] = useState(false)
   const {render,model,engine,power,password} = UnstyledInput();
-  const [error, setError] = useState("ojoj");
+  const [error, setError] = useState("");
   const cityRef = collection(db, 'Car');
 
   const addNewCar = async () => {

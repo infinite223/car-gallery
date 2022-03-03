@@ -39,3 +39,9 @@
 .dot.hovered {
   display: none;
 }
+
+@media screen and (max-width:754px){
+  .ring, .ring.hovered, .dot{
+  display: none;
+  }
+}
