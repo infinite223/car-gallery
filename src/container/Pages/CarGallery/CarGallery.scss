@@ -7,6 +7,73 @@
     background-color:rgb(0,2,36);
 
     color: white;
+
+    .CarGallery__menu{
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      width: 25%;
+      height: 100vh;
+
+      background: rgb(0,2,36);
+      background: linear-gradient(119deg, rgb(4, 9, 97) 20%, rgba(25, 57, 128, 0.931) 54%, rgba(14,48,94,1) 100%);
+
+      color: white;
+      text-align: center;
+      font-size: 15px;
+      font-weight: 700;
+      font-family: 'Courier New', monospace;
+
+      .CarGallery__menu-back{
+        position: absolute;
+        left: 20px;
+        top:20px;
+
+        width: 200px;
+
+        background-color: rgba(25, 57, 128, 0.931);
+        border-radius: 15px;
+  
+        h3{
+          margin-left: .5rem;
+        }
+
+     
+      }
+      .CarGallery__menu-edit{
+        position: absolute;
+        right: 20px;
+        top:20px;
+
+        padding: .8rem;
+
+        background-color: rgba(25, 57, 128, 0.931);
+        border-radius: 15px;
+      }
+      
+      .CarGallery__menu-edit:hover, .CarGallery__menu-back:hover{
+        background-color: rgba(67, 109, 201, 0.531);
+        transition: all ease;
+        transition-duration: .5s;
+      }
+    }
+
+    .CarGallery__images{
+      display:flex;
+      flex-wrap: wrap;
+      justify-content:center;
+      align-items: center;
+  
+      width: 75%;
+   
+      min-height: 100vh;
+      height:auto;
+  
+      background-color:rgb(0,2,36);
+    }
   
     @media screen and (max-width:1050px){
       flex-direction: column;

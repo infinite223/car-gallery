@@ -1,12 +1,17 @@
+import photo from '../../../assets/scirocco.png'; 
 import React from 'react'
 import './Car.scss'
 import { useNavigate, useParams } from "react-router-dom";
+
 
 const Car = ({ model, engine }) => {
   let navigate = useNavigate(); 
  
   return (
-    <div className='car' onClick={()=> navigate("/CarGallery",{state:{model:model}})}>
+    <div className='car'
+      style={{ backgroundImage: `url(${photo})` }}
+       onClick={()=> navigate("/CarGallery",{state:{model:model}})}
+     >
       <div className='car__image'>
         {//<UploadForm/>
         }

@@ -18,7 +18,7 @@ const Navbar = () => {
        drag="x"  
        dragConstraints={{right:0, left:0}} 
       >
-            <motion.div className='navbar__icon-image' drag>
+            <motion.div className='navbar__icon-image'>
               <FaRegImages size="30" color='rgba(14, 255, 86,0.8)'/>
             </motion.div>
 
