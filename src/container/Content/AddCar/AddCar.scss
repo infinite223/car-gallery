@@ -1,5 +1,6 @@
 .addCar{
     flex-direction: column;
+    position: relative;
 
     width: 250px;
     height: 250px;
@@ -10,28 +11,33 @@
 
     font-size: 70px;
 
+    .addCar__icon-cars{
+        position:absolute;
+        opacity: .5;
+    }
 
     &:hover{
-        background-color: rgba(150, 174, 231,.65);
+        background-color: rgba(150, 174, 231,.25);
         transition: all ease;
         transition-duration: .5s;
     }
 
     @media screen and (max-width:754px){
-        width:350px;      
-        height: 350px;    
+        width:150px;      
+        height: 150px;
+        margin: 50px 0px;    
     }
 }
 
 .addCar-form{
     flex-direction: column;
     position: fixed;
-    top:10%;
+    top:6%;
     left: 35%;
     z-index: 5;
 
     width: 25%;
-    height: 70vh;
+    height: 75vh;
     padding: 3rem;
 
     background: rgb(0,2,36);
@@ -90,10 +96,14 @@
     @media screen and (max-width:954px){
         width:100%;       
         padding: .5rem;    
-        height: 90%;   
+        height: 100%;   
 
         left:0px;
-        top:5%
+        top:0px;
+
+        .addCar__icon-button{
+            bottom:2rem;
+        }
      }
 }
 

@@ -1,18 +1,24 @@
 import React, {useState} from 'react';
 import './AddCar.scss'
+import plus from '../../../assets/plus_icon.png'
+import cars from '../../../assets/traffic-jam.png'
+
 import { IoCloseOutline } from 'react-icons/io5'
 import { AiFillCar } from 'react-icons/ai'
 import { motion } from "framer-motion"
 import UnstyledInput from '../../../components/CustomInput.js'
+import { useMediaQuery } from 'react-responsive'
 
 import { db } from '../../../firebase/config'
-import { doc, addDoc, collection } from "firebase/firestore"; 
+import {  addDoc, collection } from "firebase/firestore"; 
 
 const AddCar = (props) => {
   const [toggleForm, setToggleForm] = useState(false)
   const {render,model,engine,power,password} = UnstyledInput();
   const [error, setError] = useState("");
   const cityRef = collection(db, 'Car');
+
+  const isTabletOrMobile:boolean = useMediaQuery({ query: '(max-width: 1224px)' })
 
   const addNewCar = async () => {
     if(model!=="" && password!==""){
@@ -29,12 +35,15 @@ const AddCar = (props) => {
   }
   return (
     <>
-        <div className='addCar flex' onClick={()=>setToggleForm(true)}>+</div>
+        <div className='addCar flex' onClick={()=>setToggleForm(true)}>
+          <img className='addCar__icon-cars' src={cars} width="150px" alt="add car"/>
+          <img src={plus} width="100px" alt="add car"/>
+        </div>
         {toggleForm&&
           <motion.div className='addCar-form flex' drag> 
             <div className='addCar__icon-button flex' >
               <div className='addCar__icon-add flex' onClick={()=>(addNewCar(),props.toggle())}>ADD</div>
-              <div className='addCar__icon-exit flex' onClick={()=>setToggleForm(false)}>
+              <div className='addCar__icon-exit flex' onClick={()=>(setToggleForm(false),setError(""))}>
                  <IoCloseOutline size={25}  color='black'/>
               </div>
             </div>

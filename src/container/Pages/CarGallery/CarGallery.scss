@@ -2,11 +2,13 @@
     display: flex;
     cursor: none;
 
-    height: 100vh;
+    height: auto;
+    min-height: 100vh;
 
     background-color:rgb(0,2,36);
 
     color: white;
+    font-size: 15px;
 
     .CarGallery__menu{
       position: relative;
@@ -23,7 +25,6 @@
 
       color: white;
       text-align: center;
-      font-size: 15px;
       font-weight: 700;
       font-family: 'Courier New', monospace;
 
@@ -59,6 +60,26 @@
         transition: all ease;
         transition-duration: .5s;
       }
+
+      .CarGallery__menu-dataCar{
+        display: flex;
+        flex-direction: column;
+
+        padding: .8rem;
+        max-width: 80%;
+
+        background-color: rgba(25, 57, 128, 0.931);
+        border-radius: 15px;
+
+        p{
+          color: rgb(17, 199, 114);
+          font-size: 18px;
+          font-weight: 700;
+        }
+        text{
+          margin: .7rem 0rem;
+        }
+      }
     }
 
     .CarGallery__images{
@@ -73,10 +94,20 @@
       height:auto;
   
       background-color:rgb(0,2,36);
+
+      @media screen and (max-width:954px){
+        width: 100%;
+        height: 50%;
+       }
     }
   
-    @media screen and (max-width:1050px){
+    @media screen and (max-width:950px){
       flex-direction: column;
+
+      .CarGallery__menu{
+        width: 100%;
+        height: 70vh;
+      }
     }
   }
   

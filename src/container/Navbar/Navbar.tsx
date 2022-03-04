@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import './Navbar.scss';
 import { FaRegImages } from 'react-icons/fa'
-import { IoCloseOutline, IoEllipsisHorizontalOutline } from 'react-icons/io5'
+import { IoCloseOutline } from 'react-icons/io5'
 import { motion } from "framer-motion"
 import { useMediaQuery } from 'react-responsive'
 
