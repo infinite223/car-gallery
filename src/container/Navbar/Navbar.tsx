@@ -1,16 +1,17 @@
 import React, {useState} from 'react'
-import './Navbar.scss';
-import { FaRegImages } from 'react-icons/fa'
-import { IoCloseOutline } from 'react-icons/io5'
-import { motion } from "framer-motion"
 import { useMediaQuery } from 'react-responsive'
+
+import './Navbar.scss';
+
+import { motion, IoCloseOutline, FaRegImages } from "../index"
+
 
 const Navbar = () => {
   const [display,setDisplay] = useState("flex");
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
+  
 
-  return (
-    
+  return (  
      <motion.nav 
        animate={!isTabletOrMobile?{width:[10,25,50,100,150,200,240,340,370],display:display}
                                  :{height:[10,25,50,100,150,200,240,340,370,400],display:display}}

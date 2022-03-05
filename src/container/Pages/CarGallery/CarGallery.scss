@@ -28,6 +28,26 @@
       font-weight: 700;
       font-family: 'Courier New', monospace;
 
+      .CarGallery__login{
+        flex-direction: column;
+        position: fixed;
+        top:30%;
+        left: 37%;
+        z-index: 5;
+
+        width: 25%;
+        height: 25vh;
+        padding: 1rem;
+
+        background: rgb(0,2,36);
+        background: linear-gradient(259deg, rgb(4, 9, 97) 20%, rgba(25, 57, 128, 0.931) 54%, rgba(14,48,94,1) 100%);
+        border-radius: 15px;
+
+        font-size:20px;
+        color: rgba(255, 255, 255, 0.699);
+        font-family: 'Courier New', monospace;
+      }
+
       .CarGallery__menu-back{
         position: absolute;
         left: 20px;

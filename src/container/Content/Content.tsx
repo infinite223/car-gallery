@@ -1,9 +1,11 @@
 import React, {useEffect,useState} from 'react'
-import { Car, AddCar } from '../index'
+import { Car, AddCar, motion } from '../index'
+
 import './Content.scss';
-import { collection,query, getDocs, doc } from "firebase/firestore";
+
+import { collection, getDocs } from "firebase/firestore";
 import { db } from '../../firebase/config'
-import { motion } from "framer-motion"
+
 
 const Content = () => {
   const [cars, setCars] = useState([]);

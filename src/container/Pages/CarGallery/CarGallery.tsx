@@ -1,10 +1,11 @@
 import React,{useState} from 'react'
 import {useLocation} from 'react-router-dom';
-import "./CarGallery.scss"
-import { motion } from "framer-motion"
-import { IoChevronBackCircleSharp } from 'react-icons/io5'
-import { AiOutlineEdit } from 'react-icons/ai'
 import { useNavigate } from "react-router-dom";
+
+import "./CarGallery.scss"
+
+import { AiOutlineEdit, IoChevronBackCircleSharp, motion } from '../../index'
+
 
 const CarGallery = () => {
     const location = useLocation();
@@ -28,6 +29,10 @@ const CarGallery = () => {
            <AiOutlineEdit size={30} color="rgb(14, 255, 86)"/>
         </div>
 
+        {toggleEdit&&<div className='CarGallery__login flex'>
+            <h3>Type password to your gallery</h3>  
+        </div>}
+ 
         <h1>{dataCar.model}</h1>  
         <div className='CarGallery__menu-dataCar'>
           <p>Some information about the car</p>

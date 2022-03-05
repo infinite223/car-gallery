@@ -1,16 +1,14 @@
 import React, {useState} from 'react';
-import './AddCar.scss'
-import plus from '../../../assets/plus_icon.png'
-import cars from '../../../assets/traffic-jam.png'
-
-import { IoCloseOutline } from 'react-icons/io5'
-import { AiFillCar } from 'react-icons/ai'
-import { motion } from "framer-motion"
-import UnstyledInput from '../../../components/CustomInput.js'
 import { useMediaQuery } from 'react-responsive'
 
 import { db } from '../../../firebase/config'
 import {  addDoc, collection } from "firebase/firestore"; 
+
+import './AddCar.scss'
+
+import { motion, cars, plus, IoCloseOutline, AiFillCar, UnstyledInput } from "../../index"
+
+
 
 const AddCar = (props) => {
   const [toggleForm, setToggleForm] = useState(false)

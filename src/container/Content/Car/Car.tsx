@@ -1,8 +1,9 @@
-import photo from '../../../assets/scirocco.png'; 
 import React from 'react'
-import './Car.scss'
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
+import './Car.scss'
+
+import photo from '../../../assets/scirocco.png'; 
 
 const Car = ({ dataCar}) => {
   let navigate = useNavigate(); 
