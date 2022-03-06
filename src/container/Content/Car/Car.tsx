@@ -19,7 +19,6 @@ const Car = ({ dataCar}) => {
       </div>    
       <div className='car__info'>
         <div className='car__info-name'>{dataCar.model}</div>
-        <div className='car__info-stats'>{dataCar.engine}</div>
       </div>
     </div>
   )

@@ -31,7 +31,7 @@
       .CarGallery__login{
         flex-direction: column;
         position: fixed;
-        top:30%;
+        top:35%;
         left: 37%;
         z-index: 5;
 
@@ -43,9 +43,42 @@
         background: linear-gradient(259deg, rgb(4, 9, 97) 20%, rgba(25, 57, 128, 0.931) 54%, rgba(14,48,94,1) 100%);
         border-radius: 15px;
 
-        font-size:20px;
         color: rgba(255, 255, 255, 0.699);
         font-family: 'Courier New', monospace;
+
+        text{
+          font-size:20px;
+          padding: 2rem;
+        }
+
+        input{
+          width: 320px;
+          padding: 12px 12px;
+          margin:15px;
+
+          font-size: 1rem;
+          font-weight: 400;
+          line-height: 1.5;
+          text-align:center;
+
+          background: rgb(150, 174, 231);
+        
+          border-radius: 8px;
+      
+          opacity:.7;
+
+        
+          &:hover {
+            border-color: rgb(14, 255, 86);
+            opacity:1;
+          }
+        
+          &:focus {
+            outline: 1.5px solid rgb(14, 255, 86);
+            opacity:1;
+          }
+        }
+
       }
 
       .CarGallery__menu-back{

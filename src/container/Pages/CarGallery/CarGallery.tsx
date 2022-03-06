@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState, useEffect} from 'react'
 import {useLocation} from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 
@@ -13,7 +13,10 @@ const CarGallery = () => {
 
     const dataCar  = location.state.dataCar;
     const [toggleEdit, setToggleEdit] = useState(false);
+    const [border, setBorder] = useState("1px solid white");  
+    const [uploadOption, setUploadOption] = useState(false);
     
+    console.log(uploadOption)
   return (
     <motion.div className='CarGallery'
     animate={{opacity:[.6,.65,.7,.8,.9,1]}}
@@ -30,7 +33,10 @@ const CarGallery = () => {
         </div>
 
         {toggleEdit&&<div className='CarGallery__login flex'>
-            <h3>Type password to your gallery</h3>  
+            <text>Type password to your gallery</text>  
+            <input style={{  border: border}} type="password" onChange={
+              (x)=>(dataCar.password===x.target.value?(setToggleEdit(false),setUploadOption(true)):setBorder("2px solid red"))
+              }/>
         </div>}
  
         <h1>{dataCar.model}</h1>  
@@ -39,6 +45,11 @@ const CarGallery = () => {
           <text>Engine: {dataCar.engine}</text>
           <text>Power: {dataCar.power}</text>
         </div>
+
+              {uploadOption&&<div className='CarGallery__menu-upload'>
+              <button>click</button>
+              </div>}
+
       </motion.div>  
       <div className='CarGallery__images'>
         images...  
