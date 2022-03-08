@@ -1,10 +1,14 @@
-import React,{useState, useEffect} from 'react'
+import React,{useState} from 'react'
+
 import {useLocation} from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
+
+import { storage, db } from "../../../firebase/config";
 
 import "./CarGallery.scss"
 
 import { AiOutlineEdit, IoChevronBackCircleSharp, motion } from '../../index'
+
 
 
 const CarGallery = () => {
@@ -12,11 +16,43 @@ const CarGallery = () => {
     let navigate = useNavigate(); 
 
     const dataCar  = location.state.dataCar;
+    const [uploadOption,setUploadOption] = useState(false)
     const [toggleEdit, setToggleEdit] = useState(false);
     const [border, setBorder] = useState("1px solid white");  
-    const [uploadOption, setUploadOption] = useState(false);
-    
-    console.log(uploadOption)
+    const [image, setImage] = useState(null);
+
+  const [url, setUrl] = useState("");
+  //const [progress, setProgress] = useState(0);
+
+
+  function handleChange(e){
+    e.preventDefault();
+    let pickedFile;
+    if (e.target.files && e.target.files.length>0) {
+      pickedFile = e.target.files[0];
+      setImage(pickedFile)
+    }
+  };
+
+  const handleUpload = (e) => {
+    e.preventDefault();
+    const uploadTask = storage.ref(`images`)
+   .child("image1")
+   .put(image);
+   uploadTask.on(
+     "state chansge",
+     (snapshot) =>{
+       let progress=((snapshot.bytesTransferred/snapshot.totalBytes)*100)
+       console.log(progress)
+     },
+     (err)=>{
+       console.log(err)
+     }   
+   )
+
+  };
+   
+
   return (
     <motion.div className='CarGallery'
     animate={{opacity:[.6,.65,.7,.8,.9,1]}}
@@ -47,7 +83,9 @@ const CarGallery = () => {
         </div>
 
               {uploadOption&&<div className='CarGallery__menu-upload'>
-              <button>click</button>
+              <input type="file" onChange={handleChange} />
+               <button onClick={handleUpload}>Upload</button>
+             
               </div>}
 
       </motion.div>  
