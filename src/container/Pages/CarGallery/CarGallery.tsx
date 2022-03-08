@@ -3,7 +3,9 @@ import React,{useState} from 'react'
 import {useLocation} from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 
-import { storage, db } from "../../../firebase/config";
+import UploadForm from '../../../comps/UploadForm';
+import ImageGrid from '../../../comps/ImageGrid';
+import Modal from '../../../comps/Modal';
 
 import "./CarGallery.scss"
 
@@ -19,39 +21,10 @@ const CarGallery = () => {
     const [uploadOption,setUploadOption] = useState(false)
     const [toggleEdit, setToggleEdit] = useState(false);
     const [border, setBorder] = useState("1px solid white");  
-    const [image, setImage] = useState(null);
 
-  const [url, setUrl] = useState("");
-  //const [progress, setProgress] = useState(0);
+    const [selectedImg, setSelectedImg] = useState(null);
 
 
-  function handleChange(e){
-    e.preventDefault();
-    let pickedFile;
-    if (e.target.files && e.target.files.length>0) {
-      pickedFile = e.target.files[0];
-      setImage(pickedFile)
-    }
-  };
-
-  const handleUpload = (e) => {
-    e.preventDefault();
-    const uploadTask = storage.ref(`images`)
-   .child("image1")
-   .put(image);
-   uploadTask.on(
-     "state chansge",
-     (snapshot) =>{
-       let progress=((snapshot.bytesTransferred/snapshot.totalBytes)*100)
-       console.log(progress)
-     },
-     (err)=>{
-       console.log(err)
-     }   
-   )
-
-  };
-   
 
   return (
     <motion.div className='CarGallery'
@@ -80,17 +53,18 @@ const CarGallery = () => {
           <p>Some information about the car</p>
           <text>Engine: {dataCar.engine}</text>
           <text>Power: {dataCar.power}</text>
+
+          {uploadOption&&<div className='CarGallery__menu-upload'>
+              <UploadForm />                   
+          </div>}
+
         </div>
-
-              {uploadOption&&<div className='CarGallery__menu-upload'>
-              <input type="file" onChange={handleChange} />
-               <button onClick={handleUpload}>Upload</button>
-             
-              </div>}
-
       </motion.div>  
       <div className='CarGallery__images'>
-        images...  
+        <ImageGrid setSelectedImg={setSelectedImg} />
+                { selectedImg && (
+                  <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} />
+                )}    
       </div>  
     </motion.div>
   )

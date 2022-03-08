@@ -1,21 +1,23 @@
-import { initializeApp } from "firebase/app";
-import 'firebase/storage';
-import 'firebase/firestore';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/storage';
+import 'firebase/compat/firestore';
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyA_2BCUUrz8bDD9ODx9viyuGadzrjw7rsA",
-  authDomain: "car-galleryv2.firebaseapp.com",
-  projectId: "car-galleryv2",
-  storageBucket: "car-galleryv2.appspot.com",
-  messagingSenderId: "195384992128",
-  appId: "1:195384992128:web:f1dd4f27fe22c34fc62165"
-  };
- const app = initializeApp(firebaseConfig);
+  apiKey: "AIzaSyAxAafXLLqGiDTS7Qs5o2T9PhpecTS6pqI",
+  authDomain: "project-3f575.firebaseapp.com",
+  projectId: "project-3f575",
+  storageBucket: "project-3f575.appspot.com",
+  messagingSenderId: "1008381209321",
+  appId: "1:1008381209321:web:766188a735ccf2c2ddde78"
+};
+firebase.initializeApp(firebaseConfig);
 
- const storage = app.storage;
- const projectFirestore = app.firestore;
- const timestamp ="";
- const db = getFirestore(app);
+const projectStorage = firebase.storage();
+const projectFirestore = firebase.firestore();
+const timestamp = firebase.firestore.FieldValue.serverTimestamp;
 
-export {db, storage, projectFirestore, timestamp };
+
+const db = getFirestore();
+
+export {db, projectStorage, projectFirestore, timestamp };
