@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { projectFirestore } from '../firebase/config';
 
-const useFirestore = (collection, car) => {
-  const [docs, setDocs] = useState([]);
+const useStartImage = (collection, car) => {
+  const [img, setImage] = useState([]);
 
   useEffect(() => {
     const unsub = projectFirestore.collection(collection)
@@ -12,16 +12,15 @@ const useFirestore = (collection, car) => {
         let documents = []; 
         snap.forEach(doc => {
           if(doc.data().car===car){
-          documents.push({...doc.data(), id: doc.id});
+            setImage(doc.data().url);
           }
         });
-        setDocs(documents);
       });
 
     return () => unsub();
   }, [collection]);
 
-  return { docs };
+  return { img };
 }
 
-export default useFirestore;
+export default useStartImage;

@@ -25,7 +25,7 @@ const grey = {
 
 const StyledInputElement = styled('input')(
   ({ theme }) => `
-  width: 320px;
+  width: 300px;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;

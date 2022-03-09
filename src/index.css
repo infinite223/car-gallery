@@ -44,7 +44,7 @@ label:hover{
 }
 .output{
   margin-top: 1rem;
-  height: 60px;
+  height: 20px;
   width: 150px;
 
   font-size: 0.8rem;
@@ -57,13 +57,21 @@ label:hover{
   flex-wrap: wrap;
 }
 .img-wrap img{
-  padding: 20px;
   width: 400px;
   border-radius: 10px;
+  margin: 15px;
+}
+.img-wrap{
+  position: relative;
+  height: min-content;
 }
 @media screen and (max-width:954px){
+  .img-grid{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+  }
   .img-wrap img{
-    padding: 20px;
     width: 300px;
     border-radius: 10px;
   }
@@ -83,6 +91,11 @@ label:hover{
   max-width: 60%;
   max-height: 80%;
   margin: 60px auto;
-  box-shadow: 3px 5px 7px rgba(0,0,0,0.5);
-  border: 3px solid white;
+
+  border-radius: 10px;
+}
+.heart-icon{
+  position: absolute;
+  left: 25px;
+  bottom: 25px;
 }

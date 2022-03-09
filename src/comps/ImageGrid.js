@@ -1,9 +1,10 @@
 import React from 'react';
 import useFirestore from '../hooks/useFirestore';
 import { motion } from 'framer-motion';
+import {AiOutlineHeart} from 'react-icons/ai'
 
-const ImageGrid = ({ setSelectedImg }) => {
-  const { docs } = useFirestore('images');
+const ImageGrid = ({ setSelectedImg, car }) => {
+  const { docs } = useFirestore('images', car);
 
   return (
     <div className="img-grid">
@@ -13,6 +14,7 @@ const ImageGrid = ({ setSelectedImg }) => {
           whileHover={{ opacity: 1 }}s
           onClick={() => setSelectedImg(doc.url)}
         >
+              <div className='heart-icon'><AiOutlineHeart size={25}/></div>
           <motion.img src={doc.url} 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
