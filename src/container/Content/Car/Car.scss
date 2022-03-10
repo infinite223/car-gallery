@@ -1,7 +1,7 @@
 .car{
     display: flex;
     align-items:flex-end;
-    justify-content:end;
+    justify-content:flex-end;
     flex-direction: column;
 
     width: 340px;
@@ -16,8 +16,9 @@
     
 
     .car__info{
+       flex: end;
+       display:flex;
        
-       display: flex;
        width: 100%;
        height: 20%;
 
@@ -32,6 +33,9 @@
           width: 100%;
           text-align: center;
           font-weight: 700;
+       }
+       @media screen and (max-width:754px){
+           border-radius: 0rem;
        }
     }
 
