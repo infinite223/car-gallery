@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
-import { useMediaQuery } from 'react-responsive'
 
-import { db } from '../../../firebase/config'
+import { db } from '../../../firebase/config.tsx'
 import {  addDoc, collection } from "firebase/firestore"; 
 
 import './AddCar.scss'
@@ -15,8 +14,6 @@ const AddCar = (props) => {
   const {render,model,engine,power,password} = UnstyledInput();
   const [error, setError] = useState("");
   const cityRef = collection(db, 'Car');
-
-  const isTabletOrMobile:boolean = useMediaQuery({ query: '(max-width: 1224px)' })
 
   const addNewCar = async () => {
     if(model!=="" && password!==""){
@@ -34,7 +31,7 @@ const AddCar = (props) => {
   return (
     <>
         <div className='addCar flex' onClick={()=>setToggleForm(true)}>
-          <img className='addCar__icon-cars' src={cars} width="150px" alt="add car"/>
+          <img className='addCar__icon-cars' src={cars} width="130px" alt="add car"/>
           <img src={plus} width="100px" alt="add car"/>
         </div>
         {toggleForm&&

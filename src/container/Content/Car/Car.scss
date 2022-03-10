@@ -1,7 +1,7 @@
 .car{
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items:flex-end;
+    justify-content:end;
     flex-direction: column;
 
     width: 340px;
@@ -14,18 +14,14 @@
 
     border-radius: 1rem;
     
-    .car__image{
-        flex:start;
-        height: 80%;
-    }
 
     .car__info{
-       flex: end;
+       
        display: flex;
        width: 100%;
        height: 20%;
 
-       background-color: rgba(32, 59, 129,.5);
+       background-color: rgba(44, 46, 49, 0.6);
        border-radius: 0rem 0rem 1rem 1rem;
 
        color: rgba(255, 255, 255, 0904);
@@ -47,8 +43,11 @@
     }
 
     @media screen and (max-width:754px){
-         width: 340px;
-        height: 250px;
+        width: 100%;
+        height: 275px;
+
+        margin: 2rem 0rem 0rem 0rem;
+        border-radius: 0rem;
         
         &:hover{
             transform: scale(1);

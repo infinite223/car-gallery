@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { projectStorage, projectFirestore, timestamp } from '../firebase/config';
+import { projectStorage, projectFirestore, timestamp } from '../firebase/config.tsx';
 
-const useStorage = (file, car) => {
+const useStorage = (file, car:string) => {
   const [progress, setProgress] = useState(0);
   const [error, setError] = useState(null);
   const [url, setUrl] = useState(null);
@@ -9,7 +9,6 @@ const useStorage = (file, car) => {
   useEffect(() => {
     const storageRef = projectStorage.ref(car+"/"+file.name);
     const collectionRef = projectFirestore.collection('images');
-    const collectionCarsRef = projectFirestore.collection('Car');
     
     storageRef.put(file).on('state_changed', (snap) => {
       let percentage = (snap.bytesTransferred / snap.totalBytes) * 100;

@@ -4,7 +4,7 @@ import { Car, AddCar, motion } from '../index'
 import './Content.scss';
 
 import { collection, getDocs } from "firebase/firestore";
-import { db } from '../../firebase/config'
+import { db } from '../../firebase/config.tsx'
 
 
 const Content = () => {
@@ -17,7 +17,7 @@ const Content = () => {
     const getCars = async () =>{  
       const data = await getDocs(carsCollectionRef);
       setCars(data.docs.map((doc)=>({...doc.data(),id:doc.id})))
-      setLoading(true)
+      await setLoading(true)
     }
     console.log(cars)
     getCars();

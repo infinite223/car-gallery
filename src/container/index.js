@@ -15,4 +15,4 @@ export { motion } from "framer-motion"
 export { default as plus } from '../assets/plus_icon.png'
 export { default as cars } from '../assets/traffic-jam.png'
 
-export { default as UnstyledInput } from '../components/CustomInput'
+export { default as UnstyledInput } from '../comps/CustomInput.js'

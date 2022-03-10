@@ -54,7 +54,8 @@ label:hover{
 }
 .img-grid{
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap:wrap;
+ height: fit-content;
 }
 .img-wrap img{
   width: 400px;
@@ -65,17 +66,6 @@ label:hover{
   position: relative;
   height: min-content;
 }
-@media screen and (max-width:954px){
-  .img-grid{
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-  }
-  .img-wrap img{
-    width: 300px;
-    border-radius: 10px;
-  }
- }
 
 
 .backdrop{
@@ -94,8 +84,24 @@ label:hover{
 
   border-radius: 10px;
 }
-.heart-icon{
-  position: absolute;
-  left: 25px;
-  bottom: 25px;
-}
+
+@media screen and (max-width:954px){
+  .img-grid{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+  }
+  .img-wrap img{
+    width: 100%;
+    margin: 1rem 0px;
+    border-radius: 0px;
+  }
+  .backdrop img{
+    display: block;
+    max-width: 90%;
+    max-height: 90%;
+    margin: 60px auto;
+  
+    border-radius: 10px;
+  }
+ }
