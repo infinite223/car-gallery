@@ -30,13 +30,14 @@ const Content = () => {
         animate={{opacity:[.6,.65,.7,.8,.9,1]}}
         transition={{ duration: .3 }} 
       >
-
-        {cars.map((car)=>{
-          return (
-            <Car dataCar={car}/> 
-          )
-        })}
-        
+        <h1><text className='content__h1-cars'>{cars.length}</text> Cars in Gallery</h1>
+        <div className='content__cars flex'>
+          {cars.map((car)=>{
+            return (
+              <Car dataCar={car}/> 
+            )
+          })}
+        </div>
         <AddCar toggle={()=>setToggle(!toggle)}/>  
         
       </motion.div>

@@ -31,8 +31,8 @@ const AddCar = (props) => {
   return (
     <>
         <div className='addCar flex' onClick={()=>setToggleForm(true)}>
-          <img className='addCar__icon-cars' src={cars} width="130px" alt="add car"/>
-          <img src={plus} width="100px" alt="add car"/>
+          <img className='addCar__icon-cars' src={cars} width="60px" alt="add car"/>
+          <img src={plus} width="50px" alt=""/>
         </div>
         {toggleForm&&
           <motion.div className='addCar-form flex' drag> 

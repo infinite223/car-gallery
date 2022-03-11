@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { projectStorage, projectFirestore, timestamp } from '../firebase/config.tsx';
 
-const useStorage = (file, car:string) => {
+const useStorage = (file:File, car:string) => {
   const [progress, setProgress] = useState(0);
   const [error, setError] = useState(null);
   const [url, setUrl] = useState(null);
