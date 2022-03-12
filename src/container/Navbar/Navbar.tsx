@@ -20,23 +20,27 @@ const Navbar = () => {
        dragConstraints={{right:0, left:0}} 
       >
             <motion.div className='navbar__icon-image'>
-              <FaRegImages size="30" color='rgba(14, 255, 86,0.8)'/>
+              <FaRegImages size="30" color='rgb(14, 255, 86)'/>
             </motion.div>
 
             <motion.div className='navbar__icon-exit' onClick={()=>setDisplay("none")} >
               <IoCloseOutline size={30} color='rgba(34, 40, 51, 0.831)'/>
             </motion.div>
             
-            <motion.h1
-              animate={{opacity:[0,.2,.35,.4,.6,.8,1]}}
-              transition={{duration:2}}
-            >
-              Hello!
-            </motion.h1>
-            <text>
-              <p>Your car gallery can be here...</p>
-              <h3>Add your car and then pictures!</h3>
-            </text>    
+            <motion.span
+                 style={{padding:"0rem 4rem"}}
+                 animate={{opacity:[0,.2,.35,.4,.6,.8,1]}}
+                 transition={{duration:1}}>
+              <h1>
+                Hello!
+              </h1>
+             
+              <text>
+                <p>Your car gallery can be here...</p>
+                <p>Add your car and then pictures!</p>
+              </text>    
+            </motion.span>
+            
       </motion.nav>
   )
 }

@@ -73,7 +73,7 @@
         border-radius: 15px;
 
         p{
-          color: rgb(17, 199, 114);
+          color: rgb(14, 255, 86);
           font-size: 18px;
           font-weight: 700;
         }
@@ -129,7 +129,7 @@
       background: linear-gradient(259deg, rgb(4, 9, 97) 20%, rgba(25, 57, 128, 0.931) 54%, rgba(14,48,94,1) 100%);
       border-radius: 15px;
 
-      color: rgba(255, 255, 255, 0.699);
+      color: white;
       font-family: 'Courier New', monospace;
       text-align: center;
 
@@ -137,43 +137,65 @@
         font-size:20px;
         padding: 2rem;
       }
+      .CarGallery__login-main{
+        width: 100%;
 
-      input{
-        width: 90%;
-        padding: 12px 12px;
-        margin:15px;
+        flex-direction: row;
 
-        font-size: 1rem;
-        font-weight: 400;
-        line-height: 1.5;
-        text-align:center;
 
-        background: rgb(150, 174, 231);
+        input{
+          width: 80%;
+          padding: 12px 12px;
+          margin:8px;
+  
+          font-size: 1rem;
+          font-weight: 400;
+          line-height: 1.5;
+          text-align:center;
+  
+          background: rgb(150, 174, 231);
+        
+          border-radius: 8px;
       
-        border-radius: 8px;
-    
-        opacity:.7;
-
-      
-        &:hover {
-          border-color: rgb(14, 255, 86);
-          opacity:1;
+          opacity:.7;
+  
+        
+          &:hover {
+            border-color: rgb(14, 255, 86);
+            opacity:1;
+          }
+        
+          &:focus {
+            outline: 1.5px solid rgb(14, 255, 86);
+            opacity:1;
+          }
         }
-      
-        &:focus {
-          outline: 1.5px solid rgb(14, 255, 86);
-          opacity:1;
+  
+        .CarGallery__login-exit{
+          width: 60px;
+          height: 50px;
+
+          margin:8px;
+  
+  
+          background: rgb(150, 174, 231);
+          border-radius: 8px;
+  
+          &:hover{
+            background-color: rgba(238, 30, 30, 0.931);
+          }
         }
       }
+
+      
       @media screen and (max-width:950px){
-        top:22%;
+        top:15%;
         left: 5%;
 
         width: 80%;
         height: 25vh;
         padding: 1rem;
       }
-
     }
   }
   

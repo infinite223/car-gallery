@@ -9,7 +9,7 @@ import Modal from '../../../comps/Modal.tsx';
 
 import "./CarGallery.scss"
 
-import { AiOutlineEdit, IoChevronBackCircleSharp, motion } from '../../index'
+import { AiOutlineEdit, IoChevronBackCircleSharp, motion,IoCloseOutline } from '../../index'
 
 
 
@@ -51,7 +51,7 @@ const CarGallery = () => {
 
         </div>
       </motion.div>  
-     <div className='CarGallery__images'>
+     <div className='CarGallery__images background-image'>
         <ImageGrid setSelectedImg={setSelectedImg} car={dataCar.model}/>
                 { selectedImg && (
                   <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} />
@@ -59,10 +59,15 @@ const CarGallery = () => {
       </div>
 
       {toggleEdit&&<div className='CarGallery__login flex'>
-            <text>Type password to your gallery</text>  
-            <input style={{  border: border}} type="password" onChange={
-              (x)=>(dataCar.password===x.target.value?(setToggleEdit(false),setUploadOption(true)):setBorder("2px solid red"))
-              }/>
+            <text>Type password to your gallery</text> 
+            <div className='CarGallery__login-main flex'>
+              <input style={{  border: border}} type="password" onChange={
+                (x)=>(dataCar.password===x.target.value?(setToggleEdit(false),setUploadOption(true)):setBorder("2px solid red"))
+                }/>
+              <div className='CarGallery__login-exit flex' onClick={()=>setToggleEdit(false)}>
+                <IoCloseOutline size={35} color='rgba(34, 40, 51, 0.831)'/>
+              </div>
+            </div>
         </div>}
     </motion.div>
   )

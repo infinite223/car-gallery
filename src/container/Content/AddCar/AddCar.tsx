@@ -1,7 +1,8 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 import { db } from '../../../firebase/config.tsx'
 import {  addDoc, collection } from "firebase/firestore"; 
+import { useNavigate } from "react-router-dom";
 
 import './AddCar.scss'
 
@@ -12,7 +13,16 @@ import { motion, cars, plus, IoCloseOutline, AiFillCar, UnstyledInput } from "..
 const AddCar = (props) => {
   const [toggleForm, setToggleForm] = useState(false)
   const {render,model,engine,power,password} = UnstyledInput();
+  const dataCar ={
+    model: model,
+    engine: engine,
+    power: power,
+    password: password 
+  }
+
   const [error, setError] = useState("");
+
+  let navigate = useNavigate(); 
   const cityRef = collection(db, 'Car');
 
   const addNewCar = async () => {
@@ -24,15 +34,36 @@ const AddCar = (props) => {
           power: power,
           password: password 
         });
+        navigate("/CarGallery",{state:{dataCar:dataCar}})
     }else{
       setError("Brak wprowadzonych danych!")
     }
   }
+
+  const [scrolled,setScrolled]=React.useState(false);
+  const handleScroll=() => {
+    const offset=window.scrollY;
+    if(offset > 200 ){
+      setScrolled(true);
+    }
+    else{
+      setScrolled(false);
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll',handleScroll)
+  })
+  let navbarClasses=['addCar'];
+  if(scrolled){
+    navbarClasses.push('scrolled');
+  }
+
   return (
     <>
         <div className='addCar flex' onClick={()=>setToggleForm(true)}>
-          <img className='addCar__icon-cars' src={cars} width="60px" alt="add car"/>
-          <img src={plus} width="50px" alt=""/>
+          <img className='addCar__icon-cars' src={cars} width="55px" alt="add car"/>
+          <img src={plus} width="45px" alt=""/>
         </div>
         {toggleForm&&
           <motion.div className='addCar-form flex' drag> 

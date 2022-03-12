@@ -26,7 +26,7 @@ const Content = () => {
   return (
     <>
       {loading?
-      <motion.div className='content'
+      <motion.div className='content background-image'
         animate={{opacity:[.6,.65,.7,.8,.9,1]}}
         transition={{ duration: .3 }} 
       >

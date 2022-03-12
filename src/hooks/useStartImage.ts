@@ -18,7 +18,6 @@ const useStartImage = (collection, car:string) => {
 
     return () => unsub();
   }, [collection]);
-
   return { img };
 }
 
