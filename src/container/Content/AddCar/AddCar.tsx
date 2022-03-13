@@ -13,7 +13,9 @@ import { motion, cars, plus, IoCloseOutline, AiFillCar, UnstyledInput } from "..
 const AddCar = (props) => {
   const [toggleForm, setToggleForm] = useState(false)
   const {render,model,engine,power,password} = UnstyledInput();
+  
   const dataCar ={
+    idCar:props.lastId.length*2,
     model: model,
     engine: engine,
     power: power,
@@ -29,6 +31,7 @@ const AddCar = (props) => {
     if(model!=="" && password!==""){
       await addDoc(cityRef, 
         {
+          idCar:props.lastId.length*2,
           model: model,
           engine: engine,
           power: power,

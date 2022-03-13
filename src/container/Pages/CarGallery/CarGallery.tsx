@@ -23,7 +23,7 @@ const CarGallery = () => {
     const [border, setBorder] = useState("1px solid white");  
 
     const [selectedImg, setSelectedImg] = useState(null);
-
+    console.log(dataCar.idCar)
   return (
     <motion.div className='CarGallery'
       animate={{opacity:[.6,.65,.7,.8,.9,1]}}
@@ -46,13 +46,13 @@ const CarGallery = () => {
           <text>Power: {dataCar.power}</text>
 
           {uploadOption&&<div className='CarGallery__menu-upload'>
-              <UploadForm car={dataCar.model} />                   
+              <UploadForm car={dataCar.model} idCar={dataCar.idCar}/>                   
           </div>}
 
         </div>
       </motion.div>  
      <div className='CarGallery__images background-image'>
-        <ImageGrid setSelectedImg={setSelectedImg} car={dataCar.model}/>
+        <ImageGrid setSelectedImg={setSelectedImg} idCar={dataCar.idCar}/>
                 { selectedImg && (
                   <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} />
                 )}    

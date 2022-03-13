@@ -38,7 +38,7 @@ const Content = () => {
             )
           })}
         </div>
-        <AddCar toggle={()=>setToggle(!toggle)}/>  
+        <AddCar lastId={cars.map((car)=>{return car.idCar})}toggle={()=>setToggle(!toggle)}/>  
         
       </motion.div>
       :<div className='loading__cars flex'>

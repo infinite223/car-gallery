@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { projectFirestore } from '../firebase/config.tsx';
 
-const useFirestore = (collection, car:string) => {
+const useFirestore = (collection, idCar:number) => {
   const [docs, setDocs] = useState([]);
 
   useEffect(() => {
@@ -10,8 +10,9 @@ const useFirestore = (collection, car:string) => {
       .orderBy('createdAt', 'desc')
       .onSnapshot(snap => {
         let documents = []; 
+      
         snap.forEach(doc => {
-          if(doc.data().car===car){
+          if(doc.data().idCar===idCar){
           documents.push({...doc.data(), id: doc.id});
           }
         });

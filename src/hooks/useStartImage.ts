@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { projectFirestore } from '../firebase/config.tsx';
 
-const useStartImage = (collection, car:string) => {
+const useStartImage = (collection, idCar:string) => {
   const [img, setImage] = useState([]);
 
   useEffect(() => {
@@ -10,7 +10,7 @@ const useStartImage = (collection, car:string) => {
       .orderBy('createdAt', 'desc')
       .onSnapshot(snap => {
         snap.forEach(doc => {
-          if(doc.data().car===car){
+          if(doc.data().idCar===idCar){
             setImage(doc.data().url);
           }
         });

@@ -5,9 +5,9 @@ import useStartImage from '../../../hooks/useStartImage.ts';
 import './Car.scss'
 
 const Car = ({ dataCar}) => {
-  const { img } = useStartImage('images', dataCar.model);
+  const { img } = useStartImage('images', dataCar.idCar);
   let navigate = useNavigate(); 
-  console.log(img)
+
   return (
     <div className='car'
       style={{ backgroundImage: `url(${img})` }}
