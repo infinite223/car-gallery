@@ -3,7 +3,7 @@ import React,{useState} from 'react'
 import {useLocation} from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 
-import UploadForm from '../../../comps/UploadForm.tsx';
+import UploadForm from '../../../comps/UploadForm.js';
 import ImageGrid from '../../../comps/ImageGrid.tsx';
 import Modal from '../../../comps/Modal.tsx';
 
