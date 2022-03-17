@@ -53,18 +53,16 @@ label:hover{
   color: var(--error);
 }
 .img-grid{
-  display: flex;
-  flex-wrap:wrap;
- height: fit-content;
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  justify-items: center;
+  align-items: center;
 }
 .img-wrap img{
   width: 400px;
   border-radius: 10px;
   margin: 15px;
-}
-.img-wrap{
-  position: relative;
-  height: min-content;
 }
 
 
@@ -89,6 +87,7 @@ label:hover{
   .img-grid{
     display: flex;
     flex-direction: column;
+
     margin: auto;
   }
   .img-wrap img{

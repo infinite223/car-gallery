@@ -14,19 +14,15 @@
     border: 2px solid rgb(21, 25, 102);
     border-radius: 50%;   
 
-    font-size: 70px;
-
-    .addCar__icon-cars{
-        position:absolute;
-        opacity: .65;
-    }
-
-    img{
-        opacity: .9;
-    }
+    font-size: 24px;
+    font-weight: 800;
+    color: rgb(3, 2, 2);
+    text-align: center;
+    line-height: 22px;
+    
 
     &:hover{
-        background-color: rgb(98, 199, 129);
+        background-color: rgb(49, 100, 194);
         transition: all ease;
         transform:scale(.8);
         transition-duration: .5s;

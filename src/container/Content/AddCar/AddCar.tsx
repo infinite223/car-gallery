@@ -64,12 +64,20 @@ const AddCar = (props) => {
 
   return (
     <>
-        <div className='addCar flex' onClick={()=>setToggleForm(true)}>
-          <img className='addCar__icon-cars' src={cars} width="55px" alt="add car"/>
-          <img src={plus} width="45px" alt=""/>
-        </div>
+        <motion.div className='addCar flex' onClick={()=>setToggleForm(true)}
+             whileHover={{
+              width: 150,
+              fontSize:"40px",
+              color:"#4e5052",
+              borderRadius:"20px",
+              transition: { duration: .2 },
+            }}
+            whileTap={{ scale: 2.9 }}
+        >
+          <text>New car</text>
+        </motion.div>
         {toggleForm&&
-          <motion.div className='addCar-form flex' drag> 
+          <motion.div layout className='addCar-form flex' drag> 
             <div className='addCar__icon-button flex' >
               <div className='addCar__icon-add flex' onClick={()=>(addNewCar(),props.toggle())}>ADD</div>
               <div className='addCar__icon-exit flex' onClick={()=>(setToggleForm(false),setError(""))}>
