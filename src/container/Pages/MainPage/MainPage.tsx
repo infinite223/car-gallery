@@ -1,11 +1,11 @@
 import './MainPage.scss';
 import { Navbar,Content } from '../../index'
 
-function MainPage() {
+function MainPage({login}) {
   return (
     <div className="App">
       <Navbar/>
-      <Content/>
+      <Content login={login}/>
     </div>
   );
 }

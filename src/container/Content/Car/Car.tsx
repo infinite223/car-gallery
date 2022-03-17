@@ -1,15 +1,15 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { useNavigate } from "react-router-dom";
 import useStartImage from '../../../hooks/useStartImage.ts';
 
 import './Car.scss'
 
-const Car = ({ dataCar}) => {
+const Car = ({ dataCar, login}) => {
   const { img } = useStartImage('images', dataCar.idCar);
   let navigate = useNavigate(); 
 
   return (
-    <div className='car'
+    <div className={login===dataCar.idCar?"car myCar":"car"}
       style={{ backgroundImage: `url(${img})` }}
        onClick={()=> navigate("/CarGallery",{state:{dataCar:dataCar}})}
      > 

@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState, useEffect} from 'react'
 
 import {useLocation} from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
@@ -13,17 +13,19 @@ import { AiOutlineEdit, IoChevronBackCircleSharp, motion,IoCloseOutline } from '
 
 
 
-const CarGallery = () => {
+const CarGallery = ({login,loginUp}) => {
     const location = useLocation();
     let navigate = useNavigate(); 
-
     const dataCar  = location.state.dataCar;
-    const [uploadOption,setUploadOption] = useState(false)
+    const [uploadOption,setUploadOption] = useState(false);
     const [toggleEdit, setToggleEdit] = useState(false);
     const [border, setBorder] = useState("1px solid white");  
 
     const [selectedImg, setSelectedImg] = useState(null);
-    console.log(dataCar.idCar)
+
+    useEffect(() => {
+      if(login===dataCar.idCar) {setUploadOption(true)}
+    }, [login]);
   return (
     <motion.div className='CarGallery'
       animate={{opacity:[.6,.65,.7,.8,.9,1]}}
@@ -35,7 +37,7 @@ const CarGallery = () => {
             <h3>back to cars</h3>
         </div>
 
-        <div className='CarGallery__menu-edit flex' onClick={()=> setToggleEdit(true)}>
+        <div className='CarGallery__menu-edit flex' onClick={()=> !login?setToggleEdit(true):(loginUp(""),setUploadOption(false))}>
            <AiOutlineEdit size={30} color="rgb(14, 255, 86)"/>
         </div>
  
@@ -62,7 +64,7 @@ const CarGallery = () => {
             <text>Type password to your gallery</text> 
             <div className='CarGallery__login-main flex'>
               <input style={{  border: border}} type="password" onChange={
-                (x)=>(dataCar.password===x.target.value?(setToggleEdit(false),setUploadOption(true)):setBorder("2px solid red"))
+                (x)=>(dataCar.password===x.target.value?(setToggleEdit(false),loginUp(dataCar.idCar),setUploadOption(true)):setBorder("2px solid red"))
                 }/>
               <div className='CarGallery__login-exit flex' onClick={()=>setToggleEdit(false)}>
                 <IoCloseOutline size={35} color='rgba(34, 40, 51, 0.831)'/>

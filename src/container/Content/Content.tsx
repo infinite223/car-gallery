@@ -7,7 +7,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from '../../firebase/config.tsx'
 
 
-const Content = () => {
+const Content = ({login}) => {
   const [cars, setCars] = useState([]);
   const carsCollectionRef = collection(db, "Car")
   const [toggle, setToggle] = useState(false);
@@ -34,7 +34,7 @@ const Content = () => {
         <div className='content__cars flex'>
           {cars.map((car)=>{
             return (
-              <Car dataCar={car}/> 
+              <Car dataCar={car} login={login}/> 
             )
           })}
         </div>
