@@ -19,7 +19,6 @@ const Content = ({login}) => {
       setCars(data.docs.map((doc)=>({...doc.data(),id:doc.id})))
       await setLoading(true)
     }
-    console.log(cars)
     getCars();
   },[toggle]);
 

@@ -54,7 +54,7 @@ const CarGallery = ({login,loginUp}) => {
         </div>
       </motion.div>  
      <div className='CarGallery__images background-image'>
-        <ImageGrid setSelectedImg={setSelectedImg} idCar={dataCar.idCar}/>
+        <ImageGrid login={login} setSelectedImg={setSelectedImg} idCar={dataCar.idCar}/>
                 { selectedImg && (
                   <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} />
                 )}    

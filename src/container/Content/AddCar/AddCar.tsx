@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 import './AddCar.scss'
 
-import { motion, cars, plus, IoCloseOutline, AiFillCar, UnstyledInput } from "../../index"
+import { motion, IoCloseOutline, AiFillCar, UnstyledInput } from "../../index"
 
 
 
