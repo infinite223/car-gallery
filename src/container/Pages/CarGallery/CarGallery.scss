@@ -98,17 +98,17 @@
 
       .heart-icon{
         left: 25px;
-        bottom: 55px;
-        padding: .2rem;
+        bottom: 60px;
 
         display: flex;
         align-items: center;
+        justify-content: center;
         position: relative;
 
         background-color: rgba(0, 0, 0, 0.55);
 
-        width: 60px;
-        height: 25px;
+        width: 65px;
+        height: 35px;
         border-radius: 11px;
 
         text{
@@ -116,6 +116,10 @@
         }
         @media screen and (max-width:954px){
          left: 5px;
+         }
+
+         .heart-icon-fa{
+           margin-top: 5px;
          }
       }
 

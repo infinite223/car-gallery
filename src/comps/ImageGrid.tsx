@@ -34,7 +34,12 @@ const ImageGrid = ({ setSelectedImg, idCar, login }) => {
             onClick={() => setSelectedImg(doc.url)}
           />
           <div className='heart-icon flex' onClick={()=>(UpdataLikes(doc))}>
-            <FaHeart  color={doc.likes&&doc.likes.length>0&&(doc.likes.find(x=>x===login)?"red":"white")} size={23}/>
+            <motion.div 
+            whileTap={login!==idCar&&{scale:[1,2,6,4, 1]}}
+            transition={{ duration: .3 }}  
+            className='heart-icon-fa'>
+              <FaHeart  color={doc.likes&&doc.likes.length>0&&(doc.likes.find(x=>x===login)?"red":"white")} size={21}/>
+            </motion.div>
             <text className='flex'>{doc.likes&&doc.likes.length&&doc.likes.filter(x => x!==null).length}</text>
           </div>
         </motion.div>

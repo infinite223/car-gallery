@@ -67,14 +67,15 @@ const AddCar = (props) => {
         <motion.div className='addCar flex' onClick={()=>setToggleForm(true)}
              whileHover={{
               width: 150,
-              fontSize:"40px",
+              lineHeight:"32px",
+              fontSize:"37px",
               color:"#4e5052",
               borderRadius:"20px",
               transition: { duration: .2 },
             }}
             whileTap={{ scale: 2.9 }}
         >
-          <text>New car</text>
+          <text>New Car</text>
         </motion.div>
         {toggleForm&&
           <motion.div layout className='addCar-form flex' drag> 
