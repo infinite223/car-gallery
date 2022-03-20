@@ -1,5 +1,6 @@
 import React, {useEffect,useState} from 'react'
 import { Car, AddCar, motion } from '../index'
+import useBestImage from '../../hooks/useBestImage.ts'
 
 import './Content.scss';
 
@@ -12,6 +13,8 @@ const Content = ({login}) => {
   const carsCollectionRef = collection(db, "Car")
   const [toggle, setToggle] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  const { bestImg } = useBestImage('images');
 
   useEffect(() => {
     const getCars = async () =>{  
@@ -29,6 +32,12 @@ const Content = ({login}) => {
         animate={{opacity:[.6,.65,.7,.8,.9,1]}}
         transition={{ duration: .3 }} 
       >
+
+        <div className='content__bestImage flex'>
+          <img className='bestImage' src={bestImg}/>
+          <h1>Best photo in gallery</h1>
+        </div>
+
         <h1><text className='content__h1-cars'>{cars.length}</text> Cars in Gallery</h1>
         <div className='content__cars flex'>
           {cars.map((car)=>{

@@ -10,6 +10,34 @@
     min-height: 100vh;
     height:auto;
 
+    .content__bestImage{
+        position: relative;
+        .bestImage{
+            margin-top: 50px;
+
+            border-radius: 20px;
+            width: 500px;
+
+            @media screen and (max-width:754px){
+                width: 250px;
+            }
+        }
+        h1{
+            position: absolute;
+            z-index: 8;
+            top:50px;
+
+            font-size: 20px;
+            font-weight: 900;
+            letter-spacing: 5px;
+            color: rgb(14, 255, 86);
+
+            @media screen and (max-width:754px){
+                font-size: 15px;
+            }
+        }
+    }
+
     h1{
         color: beige;
         letter-spacing: .2rem;
@@ -27,6 +55,7 @@
     .content__cars{
         min-width:100%;
         flex-wrap: wrap;
+        margin-bottom: 50px;
         
     }    
 }
