@@ -34,9 +34,9 @@ const Content = ({login}) => {
       >
 
         <div className='content__bestImage flex'>
-          <h1>Best photo in gallery</h1>
-          <img className='bestImage' src={bestImg}/>
-          <div style={{margin:"auto"}}><FaArrowDown size={55} color='rgb(14, 255, 86)'/></div>
+          <h1 className='flex'>Best photo in gallery</h1>
+          <img className='bestImage flex' src={bestImg}/>
+          <div className='icon flex'><FaArrowDown size={55} color='rgb(14, 255, 86)'/></div>
         </div>
         <div className='content__gallery flex'>
           <h1><text className='content__h1-cars'>{cars.length}</text> Cars in Gallery</h1>
