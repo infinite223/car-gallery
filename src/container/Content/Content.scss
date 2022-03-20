@@ -17,13 +17,38 @@
         min-height: 100vh;
         height: auto;
 
+        color: beige;
+
         .bestImage{  
             border-radius: 20px;
-            border: 2px solid rgb(14, 255, 86);
+            border-bottom: 2px solid rgb(62, 68, 185);
+            border-left: .5px solid rgb(62, 68, 185);
+            border-right: .5px solid rgb(62, 68, 185);
+
+            animation: boxShadowAnimate 3s infinite;
+            
             max-width: 500px;
             max-height: 500px;
 
-            @media screen and (max-width:754px){
+            @keyframes boxShadowAnimate {
+                0% { 
+                    -webkit-box-shadow: 0px -36px 50px -4px rgb(34, 55, 82);
+                    -moz-box-shadow:  0px -36px 50px -4px rgb(34, 55, 82);
+                    box-shadow: 0px -36px 50px -4px rgb(34, 55, 82);
+                }
+                50%{
+                    -webkit-box-shadow: 0px -56px 60px 0px rgb(31, 57, 92);
+                    -moz-box-shadow: 0px -56px 60px 0px rgb(31, 57, 92);
+                    box-shadow: 0px -56px 60px 0px rgb(31, 57, 92);
+                }
+                100% {         
+                    -webkit-box-shadow: 0px -36px 40px -5px rgb(28, 57, 94);
+                    -moz-box-shadow:  0px -36px 40px -5px rgb(28, 57, 94);
+                    box-shadow: 0px -36px 40px -5px rgb(28, 57, 94);
+                }
+              }
+
+            @media screen and (max-width:754px){        
                 width: 85%;
             }
         }
@@ -31,13 +56,12 @@
             height: 100%;
             margin: auto;
         }
-        h1{   
+        h1{  
+            z-index: 9; 
             height: 100%;
             margin: auto;
-            color: rgb(14, 255, 86);
-            font-size: 24px;
-            letter-spacing: 5px;
-           
+            font-size: 30px;
+            letter-spacing: 2px;
 
             @media screen and (max-width:754px){
                width: 200px; 
@@ -55,7 +79,7 @@
             letter-spacing: .2rem;
 
             .content__h1-cars{
-                color: rgb(14, 255, 86);
+                color: rgb(55, 63, 209);
                 font-size: 50px;          
             }
 
