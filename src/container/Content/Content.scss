@@ -12,50 +12,61 @@
 
     .content__bestImage{
         position: relative;
+        flex-direction: column;
+
+        min-height: 100vh;
+        height: auto;
+
         .bestImage{
-            margin-top: 50px;
+            margin: auto 0px;
 
             border-radius: 20px;
-            width: 500px;
+            border: 2px solid rgb(14, 255, 86);
+            max-width: 500px;
+            max-height: 500px;
 
             @media screen and (max-width:754px){
-                width: 250px;
+                width: 85%;
             }
         }
         h1{
-            position: absolute;
-            z-index: 8;
-            top:50px;
-
-            font-size: 20px;
-            font-weight: 900;
-            letter-spacing: 5px;
+            
+            margin: auto 0px;
             color: rgb(14, 255, 86);
+            font-size: 24px;
+            letter-spacing: 5px;
+           
 
             @media screen and (max-width:754px){
-                font-size: 15px;
+               width: 200px; 
+               text-align: center;
             }
         }
     }
+    .content__gallery{
+        flex-direction: column;
 
-    h1{
-        color: beige;
-        letter-spacing: .2rem;
+        min-height: 100vh;
 
-        .content__h1-cars{
-            color: rgb(14, 255, 86);
-            font-size: 50px;          
+        h1{
+            color: beige;
+            letter-spacing: .2rem;
+
+            .content__h1-cars{
+                color: rgb(14, 255, 86);
+                font-size: 50px;          
+            }
+
+            @media screen and (max-width:754px){
+                width: 150px;
+                text-align: center;
+            }
         }
-
-        @media screen and (max-width:754px){
-            width: 150px;
-            text-align: center;
-        }
+        .content__cars{
+            min-width:100%;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+            
+        }    
     }
-    .content__cars{
-        min-width:100%;
-        flex-wrap: wrap;
-        margin-bottom: 50px;
-        
-    }    
 }

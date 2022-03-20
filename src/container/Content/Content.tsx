@@ -1,7 +1,7 @@
 import React, {useEffect,useState} from 'react'
 import { Car, AddCar, motion } from '../index'
 import useBestImage from '../../hooks/useBestImage.ts'
-
+import { FaArrowDown } from 'react-icons/fa'
 import './Content.scss';
 
 import { collection, getDocs } from "firebase/firestore";
@@ -34,20 +34,21 @@ const Content = ({login}) => {
       >
 
         <div className='content__bestImage flex'>
-          <img className='bestImage' src={bestImg}/>
           <h1>Best photo in gallery</h1>
+          <img className='bestImage' src={bestImg}/>
+          <div style={{margin:"auto"}}><FaArrowDown size={55} color='rgb(14, 255, 86)'/></div>
         </div>
-
-        <h1><text className='content__h1-cars'>{cars.length}</text> Cars in Gallery</h1>
-        <div className='content__cars flex'>
-          {cars.map((car)=>{
-            return (
-              <Car dataCar={car} login={login}/> 
-            )
-          })}
+        <div className='content__gallery flex'>
+          <h1><text className='content__h1-cars'>{cars.length}</text> Cars in Gallery</h1>
+          <div className='content__cars flex'>
+            {cars.map((car)=>{
+              return (
+                <Car dataCar={car} login={login}/> 
+              )
+            })}
+          </div>
+          <AddCar lastId={cars.map((car)=>{return car.idCar})}toggle={()=>setToggle(!toggle)}/>  
         </div>
-        <AddCar lastId={cars.map((car)=>{return car.idCar})}toggle={()=>setToggle(!toggle)}/>  
-        
       </motion.div>
       :<div className='loading__cars flex'>
           <div className='loading__spiner flex'></div>
