@@ -21,10 +21,8 @@
 
         .bestImage{  
             border-radius: 20px;
-            border-bottom: 2px solid rgb(62, 68, 185);
-            border-left: .5px solid rgb(62, 68, 185);
-            border-right: .5px solid rgb(62, 68, 185);
-
+            border: 1px solid rgb(32, 37, 121);
+         
             animation: boxShadowAnimate 3s infinite;
             
             max-width: 500px;
@@ -34,17 +32,17 @@
                 0% { 
                     -webkit-box-shadow: 0px -36px 50px -4px rgb(34, 55, 82);
                     -moz-box-shadow:  0px -36px 50px -4px rgb(34, 55, 82);
-                    box-shadow: 0px -36px 50px -4px rgb(34, 55, 82);
+                    box-shadow: 0px -36px 50px -4px rgb(32, 37, 121);
                 }
                 50%{
                     -webkit-box-shadow: 0px -56px 60px 0px rgb(31, 57, 92);
                     -moz-box-shadow: 0px -56px 60px 0px rgb(31, 57, 92);
-                    box-shadow: 0px -56px 60px 0px rgb(31, 57, 92);
+                    box-shadow: 0px -56px 60px 0px rgb(34, 39, 128);
                 }
                 100% {         
                     -webkit-box-shadow: 0px -36px 40px -5px rgb(28, 57, 94);
                     -moz-box-shadow:  0px -36px 40px -5px rgb(28, 57, 94);
-                    box-shadow: 0px -36px 40px -5px rgb(28, 57, 94);
+                    box-shadow: 0px -36px 40px -5px rgb(28, 34, 131);
                 }
               }
 
@@ -57,7 +55,7 @@
             margin: auto;
         }
         h1{  
-            z-index: 9; 
+            z-index: 5; 
             height: 100%;
             margin: auto;
             font-size: 30px;
