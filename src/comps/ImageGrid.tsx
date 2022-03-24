@@ -20,6 +20,17 @@ const ImageGrid = ({ setSelectedImg, idCar, login }) => {
         )
       }
      }
+     const dateImg = (doc) =>{
+      var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+      var date = new Date(doc.createdAt.seconds*1000);
+      var year = date.getFullYear();
+      var month = months[date.getMonth()];
+      var day = date.getDate();
+       console.log(year)
+        return (
+          <div>{day} {month} {year}</div>
+        )
+     }
   
   return (
     <div className="img-grid">
@@ -42,6 +53,8 @@ const ImageGrid = ({ setSelectedImg, idCar, login }) => {
             </motion.div>
             <text className='flex'>{doc.likes&&doc.likes.length&&doc.likes.filter(x => x!==null).length}</text>
           </div>
+
+          <div className='date-img'>{dateImg(doc)}</div>
         </motion.div>
       ))}
     </div>  

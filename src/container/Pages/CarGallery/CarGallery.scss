@@ -123,6 +123,15 @@
          }
       }
 
+      .date-img{
+        position: relative;
+        bottom: 85px;
+        left: 315px;
+
+        color: rgb(0, 0, 0);
+        font-weight: 600;
+      }
+
       @media screen and (max-width:954px){
         width: 100%;
         height: fit-content;
