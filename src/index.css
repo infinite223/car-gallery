@@ -64,6 +64,9 @@ label:hover{
   border-radius: 10px;
   margin: 15px;
 }
+.img-wrap{
+  position: relative;
+}
 
 
 .backdrop{

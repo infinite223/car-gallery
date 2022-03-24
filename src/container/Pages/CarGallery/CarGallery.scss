@@ -124,14 +124,18 @@
       }
 
       .date-img{
-        position: relative;
-        bottom: 85px;
-        left: 315px;
+        position: absolute;
+        bottom: 65px;
+        right: 30px;
 
         width: fit-content;
 
         color: rgb(255, 255, 255);
         font-weight: 600;
+
+        @media screen and (max-width:954px){
+          right: 10px;
+        }
       }
 
       @media screen and (max-width:954px){
