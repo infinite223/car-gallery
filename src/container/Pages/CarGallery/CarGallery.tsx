@@ -1,15 +1,11 @@
-import React,{useState, useEffect} from 'react'
+import React, {useState, useEffect} from 'react'
 
-import {useLocation} from 'react-router-dom';
-import { useNavigate } from "react-router-dom";
-
+import "./CarGallery.scss"
 import UploadForm from '../../../comps/UploadForm.js';
 import ImageGrid from '../../../comps/ImageGrid.tsx';
 import Modal from '../../../comps/Modal.tsx';
 
-import "./CarGallery.scss"
-
-import { AiOutlineEdit, IoChevronBackCircleSharp, motion,IoCloseOutline } from '../../index'
+import { AiOutlineEdit, IoChevronBackCircleSharp, motion,IoCloseOutline, useNavigate, useLocation } from '../../index'
 
 
 
@@ -26,6 +22,7 @@ const CarGallery = ({login,loginUp}) => {
     useEffect(() => {
       if(login===dataCar.idCar) {setUploadOption(true)}
     }, [login]);
+
   return (
     <motion.div className='CarGallery'
       animate={{opacity:[.6,.65,.7,.8,.9,1]}}

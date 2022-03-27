@@ -2,11 +2,10 @@ import React, {useState, useEffect} from 'react';
 
 import { db } from '../../../firebase/config.tsx'
 import {  addDoc, collection } from "firebase/firestore"; 
-import { useNavigate } from "react-router-dom";
 
 import './AddCar.scss'
 
-import { motion, IoCloseOutline, AiFillCar, UnstyledInput } from "../../index"
+import { motion, IoCloseOutline, AiFillCar, UnstyledInput, useNavigate } from "../../index"
 
 
 
@@ -81,7 +80,7 @@ const AddCar = (props) => {
           <motion.div layout className='addCar-form flex' drag> 
             <div className='addCar__icon-button flex' >
               <div className='addCar__icon-add flex' onClick={()=>(addNewCar(),props.toggle())}>ADD</div>
-              <div className='addCar__icon-exit flex' onClick={()=>(setToggleForm(false),setError(""))}>
+              <div className='addCar__icon-exit flex' onClick={()=>(setToggleForm(false), setError(""))}>
                  <IoCloseOutline size={25}  color='black'/>
               </div>
             </div>
