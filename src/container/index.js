@@ -9,6 +9,7 @@ export { IoChevronBackCircleSharp } from 'react-icons/io5'
 export { IoCloseOutline } from 'react-icons/io5'
 export { FaRegImages } from 'react-icons/fa'
 export { AiFillCar } from 'react-icons/ai'
+export { FaArrowDown } from 'react-icons/fa'
 
 export { motion } from "framer-motion"
 
