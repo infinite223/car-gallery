@@ -68,7 +68,7 @@ const AddCar = (props) => {
               width: 150,
               lineHeight:"32px",
               fontSize:"37px",
-              color:"#4e5052",
+              color:"#8e90f2",
               borderRadius:"20px",
               transition: { duration: .2 },
             }}

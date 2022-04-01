@@ -1,7 +1,6 @@
 import React, {useEffect,useState} from 'react'
 import { Car, AddCar, motion, FaArrowDown } from '../index'
 import useBestImage from '../../hooks/useBestImage.ts'
-import { BestPhotosBlock } from "./BestPhotosBlock/BestPhotosBlock"
 import './Content.scss';
 
 import { collection, getDocs } from "firebase/firestore";
@@ -35,9 +34,8 @@ const Content = ({login}) => {
 
         <div className='content__bestImage flex'>
           <h1 className='flex'>Best photo in gallery</h1>
-          {//<img className='bestImage flex' src={bestImg}/>
-}
-          <BestPhotosBlock/>
+          <img className='bestImage flex' src={bestImg}/>
+
           <div className='icon flex'><FaArrowDown size={55} color='white'/></div>
         </div>
         <div className='content__gallery flex'>

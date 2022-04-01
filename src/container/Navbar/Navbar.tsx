@@ -20,7 +20,7 @@ const Navbar = () => {
        dragConstraints={{right:0, left:0}} 
       >
             <motion.div className='navbar__icon-image'>
-              <FaRegImages size="30" color='rgb(14, 255, 86)'/>
+              <FaRegImages size="35" color='rgb(14, 255, 86)'/>
             </motion.div>
 
             <motion.div className='navbar__icon-exit' onClick={()=>setDisplay("none")} >
