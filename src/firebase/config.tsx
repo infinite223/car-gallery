@@ -2,14 +2,15 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/storage';
 import 'firebase/compat/firestore';
 import { getFirestore } from "firebase/firestore";
+import { getAuth } from 'firebase/auth'
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAxAafXLLqGiDTS7Qs5o2T9PhpecTS6pqI",
-  authDomain: "project-3f575.firebaseapp.com",
-  projectId: "project-3f575",
-  storageBucket: "project-3f575.appspot.com",
-  messagingSenderId: "1008381209321",
-  appId: "1:1008381209321:web:766188a735ccf2c2ddde78"
+  apiKey: "AIzaSyDj1OvxOY_JqFHUDArp4_KVLqLuD6iaxLo",
+  authDomain: "car-gallery-3d463.firebaseapp.com",
+  projectId: "car-gallery-3d463",
+  storageBucket: "car-gallery-3d463.appspot.com",
+  messagingSenderId: "238419076873",
+  appId: "1:238419076873:web:85dc11d510e7e4e97715d8"
 };
 firebase.initializeApp(firebaseConfig);
 
