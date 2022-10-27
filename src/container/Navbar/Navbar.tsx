@@ -4,20 +4,11 @@ import { useMediaQuery } from 'react-responsive'
 import './Navbar.scss';
 
 import { motion, IoCloseOutline, FaRegImages } from "../index"
-import { signInWithEmailAndPassword, createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
-import { Auth } from 'firebase/auth';
 // import { auth } from '../../firebase/config';
 
 const Navbar = () => {
   const [display,setDisplay] = useState("flex");
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
-
-  const login = () => {
-    signInWithEmailAndPassword(getAuth(), 'dawidszmigiel9@gmail.com', 'xddd')
-    .then((s)=>console.log(s))
-    .catch((e)=>console.log(e))
-  }
-  
 
   return (  
      <motion.nav 
@@ -26,12 +17,7 @@ const Navbar = () => {
        transition={{ duration: .5 }}   
        drag="x"  
        dragConstraints={{right:0, left:0}} 
-      >
-
-            <div onClick={login}>
-              Zaloguj
-            </div>
-
+      >          
             <motion.div className='navbar__icon-image'>
               <FaRegImages size="35" color='rgb(14, 255, 86)'/>
             </motion.div>
@@ -51,9 +37,11 @@ const Navbar = () => {
               <text>
                 <p>Your car gallery can be here...</p>
                 <p>Add your car and then pictures!</p>
-              </text>    
-            </motion.span>
-            
+              </text>   
+
+              
+             
+            </motion.span>            
       </motion.nav>
   )
 }

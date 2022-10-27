@@ -7,7 +7,7 @@ import Modal from '../../../comps/Modal.tsx';
 
 import { AiOutlineEdit, IoChevronBackCircleSharp, motion,IoCloseOutline, useNavigate, useLocation } from '../../index'
 
-
+import { getAuth } from 'firebase/auth';
 
 const CarGallery = ({login,loginUp}) => {
     const location = useLocation();
@@ -22,6 +22,21 @@ const CarGallery = ({login,loginUp}) => {
     useEffect(() => {
       if(login===dataCar.idCar) {setUploadOption(true)}
     }, [login]);
+
+    useEffect(() => {
+      const unsubscribe = getAuth().onAuthStateChanged(
+        userAuth => {
+          if(userAuth){
+            console.log(userAuth)
+          }
+          else{
+            navigate("/")
+          }
+        }
+      )
+
+      return unsubscribe;
+    }, [])
 
   return (
     <motion.div className='CarGallery'

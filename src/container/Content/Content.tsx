@@ -1,10 +1,12 @@
 import React, {useEffect,useState} from 'react'
-import { Car, AddCar, motion, FaArrowDown } from '../index'
+import { Car, motion, FaArrowDown } from '../index'
+
 import useBestImage from '../../hooks/useBestImage.ts'
 import './Content.scss';
 
 import { collection, getDocs } from "firebase/firestore";
 import { db } from '../../firebase/config.tsx'
+import ButtonsContainer from './ButtonsContainer/index';
 
 
 const Content = ({login}) => {
@@ -31,7 +33,6 @@ const Content = ({login}) => {
         animate={{opacity:[.6,.65,.7,.8,.9,1]}}
         transition={{ duration: .3 }} 
       >
-
         <div className='content__bestImage flex'>
           <h1 className='flex'>Best photo in gallery</h1>
           <img className='bestImage flex' src={bestImg}/>
@@ -47,7 +48,7 @@ const Content = ({login}) => {
               )
             })}
           </div>
-          <AddCar lastId={cars.map((car)=>{return car.idCar})}toggle={()=>setToggle(!toggle)}/>  
+          <ButtonsContainer lastId={cars.map((car)=>{return car.idCar})} toggle={()=>setToggle(!toggle)}/>  
         </div>
       </motion.div>
       :<div className='loading__cars flex'>

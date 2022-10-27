@@ -1,0 +1,145 @@
+.Login{
+    flex-direction: row;
+    display: flex;
+    position: sticky;
+    top: 10px;
+    right: 10px;
+    position: fixed;
+
+    // width: 80px;
+    // height: 80px;
+    margin: 2rem 1rem 0rem 1rem;
+
+    background: rgba(39, 39, 40, .5);
+    width: 500px;
+    padding: 5px 20px;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 20px;
+    font-size: 24px;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    line-height: 22px;
+    letter-spacing:2px;
+
+    h3 {
+        font-size: 25px;
+        letter-spacing: 4px;
+    }
+
+    .login__button{
+        padding: 10px 30px;
+        border-radius: 15px;
+        background-color: rgba(22, 61, 189, 0.8);
+
+        font-size: 16px;
+    
+        &:hover{
+            background-color: rgba(55, 63, 220, 0.5);
+            transition: all ease;
+            transition-duration: .5s;
+            cursor: pointer;
+        }
+    } 
+
+    .register__button {
+        padding: 10px 30px;
+        border-radius: 15px;
+        border: 1px solid rgba(226, 222, 222, 0.4);
+    
+        font-size: 16px;
+    
+        &:hover{
+           // background-color: rgba(48, 202, 66, 0.5);
+           border: 1px solid rgba(22, 61, 189, 0.8);
+            transition: all ease;
+            transition-duration: .5s;
+            cursor: pointer;
+        }
+    }
+    
+    @media screen and (max-width:754px){
+        width:65px;      
+        height: 65px; 
+
+        right: 10px;
+    }
+}
+
+.Login-form{
+    flex-direction: column;
+    display: flex;
+    align-content: flex-start;
+    justify-content: flex-start;
+    position: fixed;
+    top:14%;
+    z-index: 5;
+
+    padding: 7rem 3rem;
+
+    background: rgb(0,2,36);
+    //    background: rgba(39, 39, 40, .5);
+    background: linear-gradient(259deg, rgb(4, 9, 97) 20%, rgba(25, 57, 128, 0.931) 54%, rgba(14,48,94,1) 100%);
+    border-radius: 15px;
+
+    font-size:20px;
+    color: rgba(255, 255, 255, 0.699);
+    font-family: 'Courier New', monospace;
+
+    h1{
+        padding: 0rem 4rem; 
+    }
+
+    .Login__icon-button{        
+        width: 170px;
+        height: 40px;
+        margin-top: 10px;
+
+        background-color: rgba(21, 1, 137, 0.931);
+        border-radius: 15px;
+
+        &:hover{
+            background-color: rgba(31, 81, 187, 0.931);
+            transition: all ease;
+            transition-duration: .5s;
+        }
+    }
+
+    .Login__icon-exit{
+        position: absolute;
+        top:20px;
+        right:20px;
+
+        border-radius: 0px 20px 20px 0px;
+
+        &:hover{
+            scale: 1.2;
+            transition: all ease;
+            transition-duration: .5s;
+        }
+    }
+
+    @media screen and (max-width:954px){
+        width:100%;       
+        padding: .5rem;    
+        height: 100%;   
+
+        left:auto;
+        top:0px;
+
+        .addCar__icon-button{
+            bottom:5rem;
+
+            @media screen and (max-height:669px){
+                bottom:2.25rem;
+            }
+        }
+     }
+}
+
+.flex{            
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

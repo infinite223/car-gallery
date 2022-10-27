@@ -30,21 +30,19 @@ const StyledInputElement = styled('input')(
   font-weight: 400;
   line-height: 1.5;
   background: rgb(150, 174, 231);
-  border: 1px solid white;
   border-radius: 8px;
   padding: 12px 12px;
-  margin:15px;
+  margin:15px 0;
   opacity:.7;
   text-align:center;
 
   &:hover {
-    background: ${theme.palette.mode === 'dark' ? '' : grey[100]};
-    border-color: rgb(14, 255, 86);
+    background: ${theme.palette.mode === 'dark' ? '' : grey[100]}; 
     opacity:1;
   }
 
   &:focus {
-    outline: 1.5px solid rgb(14, 255, 86);
+    outline: none;
     background: ${theme.palette.mode === 'dark' ? '' : grey[100]};
     opacity:1;
   }
@@ -61,16 +59,20 @@ export default function UnstyledInput() {
   const [model, setModel] = useState("");
   const [engine, setEngine] = useState("");
   const [power, setPower] = useState("");
-  const [password, setPassword] = useState("");
+  const [emailReg, setEmailReg] = useState('')
+  const [passwordReg, setPasswordReg] = useState("");
+  const [repeatPasswordReg, setRepeatPasswordReg] = useState("");
 
   return {
-    model,engine,power,password,
-    render:(
+    emailReg, passwordReg, repeatPasswordReg,
+    renderReg:(
     <>
-      <CustomInput onChange={(x)=>setModel(x.target.value)} aria-label="Demo input" placeholder="Type model car..." />
-      <CustomInput onChange={(x)=>setEngine(x.target.value)} aria-label="Demo input" placeholder="Engine car..." />
-      <CustomInput onChange={(x)=>setPower(x.target.value)} aria-label="Demo input" placeholder="Car power  (HP/Nm)" />
-      <CustomInput onChange={(x)=>setPassword(x.target.value)} aria-label="Demo input" placeholder="Password to gallery" />
+      <CustomInput onChange={(x)=>setEmailReg(x.target.value)} aria-label="Demo input" placeholder="Type email" />
+      <CustomInput onChange={(x)=>setPasswordReg(x.target.value)} aria-label="Demo input" placeholder="Type password" />
+      <CustomInput onChange={(x)=>setRepeatPasswordReg(x.target.value)} aria-label="Demo input" placeholder="Repeat password" />
+
+      {/* <CustomInput onChange={(x)=>setPower(x.target.value)} aria-label="Demo input" placeholder="Car power  (HP/Nm)" />
+      <CustomInput onChange={(x)=>setPassword(x.target.value)} aria-label="Demo input" placeholder="Password to gallery" /> */}
     </>
     )
   }
