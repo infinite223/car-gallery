@@ -29,21 +29,24 @@ const StyledInputElement = styled('input')(
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  background: rgb(150, 174, 231);
+  background: rgba(1, 1, 93, .6);
+  border:none;
   border-radius: 8px;
   padding: 12px 12px;
-  margin:15px 0;
+  margin:10px 0;
   opacity:.7;
-  text-align:center;
+  text-align:left;
+  outline: none;
+
 
   &:hover {
-    background: ${theme.palette.mode === 'dark' ? '' : grey[100]}; 
+    
     opacity:1;
   }
 
   &:focus {
     outline: none;
-    background: ${theme.palette.mode === 'dark' ? '' : grey[100]};
+    
     opacity:1;
   }
 `,

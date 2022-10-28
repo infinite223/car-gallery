@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 
 import { db } from '../../../firebase/config.tsx'
-import {  addDoc, collection } from "firebase/firestore"; 
+import {  addDoc, collection, getDocs } from "firebase/firestore"; 
 
 import './Login.scss'
 
@@ -15,35 +15,31 @@ const ButtonsContainer = (props) => {
   const [toggleRegisterForm, setToggleRegisterForm] = useState(false)
   const {render,model,engine,power, email, password} = UnstyledInputLogin();
   const {renderReg, emailReg, passwordReg, repeatPasswordReg} = UnstyledInputRegister();
-  
-  const dataCar ={
-    idCar:props.lastId.length*2,
-    model: model,
-    engine: engine,
-    power: power,
-    password: password 
-  }
+
+  const [user, setUser] = useState(null)
+
 
   const [error, setError] = useState("");
 
-  let navigate = useNavigate(); 
-  const cityRef = collection(db, 'Car');
+  useEffect(() => {
+    const unsubscribe = getAuth().onAuthStateChanged(
+      userAuth => {
+        if(userAuth){
+          setUser(userAuth)
+        }
+        else{
+          setUser(null)
+        }
+      }
+    )
 
-  const addNewCar = async () => {
-    if(model!=="" && password!==""){
-      await addDoc(cityRef, 
-        {
-          idCar:props.lastId.length*2,
-          model: model,
-          engine: engine,
-          power: power,
-          password: password 
-        });
-        navigate("/CarGallery",{state:{dataCar:dataCar}})
-    }else{
-      setError("Brak wprowadzonych danych!")
-    }
-  }
+    return unsubscribe;
+  }, [])
+
+  console.log(user)
+  let navigate = useNavigate(); 
+  const carsRef = collection(db, 'Cars');
+  const [cars, setCars] = useState(null)
 
   const [scrolled,setScrolled]=React.useState(false);
   const handleScroll=() => {
@@ -66,26 +62,34 @@ const ButtonsContainer = (props) => {
 
   const login = () => {
     signInWithEmailAndPassword(getAuth(), email, password)
-    .then((s)=>console.log(s))
+    .then((userAuth)=>navigate('/CarsList', {userAuth}))
     .catch((e)=>console.log(e))
-  }
+  } 
 
   const register = () => {
     createUserWithEmailAndPassword(getAuth(), emailReg, passwordReg)
-    .then((s)=>console.log(s))
+    .then((userAuth)=>navigate('/CarsList', {userAuth}))
     .catch((e)=>console.log(e))
+  }
+
+  const getData = async () => {
+    const data = await getDocs(carsRef);
+    const myCars = await ((data.docs.map((doc)=>({...doc.data(), id:doc.id}))))
+    // setCars(myCars.filter((car)=>car.uidUser==user.uid))
+    {myCars!=null&&navigate('/CarsList', myCars)}
+    // await navigate('/CarsList', {cars: myCars})
   }
 
   return (
     <>
           <div className='Login'>
-            <h3>Car gallery</h3>
-            <div  onClick={()=>setToggleLoginForm(true)} className='login__button'>
-                Login
+            <h5>Car gallery</h5>
+            <div  onClick={()=>{user?getData():setToggleLoginForm(true)}} className='login__button'>
+              {user?'My account':'Login'}
             </div> 
 
-            <div onClick={()=>setToggleRegisterForm(true)} className='register__button'>
-                Register
+            <div onClick={()=>{user?setUser(null):setToggleRegisterForm(true)}} className='register__button'>
+              {user?'Log Out':'Register'}
             </div> 
           </div>
         {toggleLoginForm&&
@@ -106,7 +110,7 @@ const ButtonsContainer = (props) => {
           </motion.div>
         }
         {toggleRegisterForm&&
-          <motion.div layout className='Login-form' drag>    
+          <motion.div layout className='Login-form' drag style={{top:"10%"}}>    
             <div className='Login__icon-exit flex' onClick={()=>(setToggleRegisterForm(false), setError(""))}>
                 <IoCloseOutline size={25}  color='white'/>
             </div>   

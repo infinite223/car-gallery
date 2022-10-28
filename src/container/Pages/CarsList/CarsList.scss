@@ -1,72 +1,11 @@
-.Login{
-    flex-direction: row;
-    display: flex;
-    position: sticky;
-    top: 5px;
-    right: 5px;
-    position: fixed;
+.CarGallery__cars_list {
+    background-color: 'red';
+    width: 200px;
+    height: 300px;
 
-    // width: 80px;
-    // height: 80px;
-    margin: 2rem 1rem 0rem 1rem;
-
-    background: rgba(39, 39, 40, .5);
-    width: 400px;
-    height: 70px;
-    padding: 0px 15px;
-    align-items: center;
-    justify-content: space-around;
-    border-radius: 20px;
-    font-size: 24px;
-    font-weight: 600;
-    color: white;
-    text-align: center;
-
-    letter-spacing:2px;
-
-    h3 {
-        font-size: 25px;
-        letter-spacing: 4px;
-    }
-
-    .login__button{
-        padding: 10px 20px;
-        border-radius: 15px;
-        background-color: rgba(22, 61, 189, 0.8);
-
-        font-size: 15px;
-    
-        &:hover{
-            background-color: rgba(55, 63, 220, 0.5);
-            transition: all ease;
-            transition-duration: .5s;
-            cursor: pointer;
-        }
-    } 
-
-    .register__button {
-        padding: 10px 20px;
-        border-radius: 15px;
-        border: 1px solid rgba(226, 222, 222, 0.4);
-    
-        font-size: 15px;
-    
-        &:hover{
-           // background-color: rgba(48, 202, 66, 0.5);
-           border: 1px solid rgba(22, 61, 189, 0.8);
-            transition: all ease;
-            transition-duration: .5s;
-            cursor: pointer;
-        }
-    }
-    
-    @media screen and (max-width:754px){
-        width:65px;      
-        height: 65px; 
-
-        right: 10px;
-    }
+    z-index: 20;
 }
+
 
 .Login-form{
     flex-direction: column;
@@ -139,10 +78,4 @@
             }
         }
      }
-}
-
-.flex{            
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }

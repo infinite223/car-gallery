@@ -66,14 +66,12 @@ export default function UnstyledInput() {
   const [password, setPassword] = useState("");
 
   return {
-   email, password,
+   model, engine, power,
     render:(
     <>
-      <CustomInput onChange={(x)=>setEmail(x.target.value)} aria-label="Demo input" placeholder="Type email" />
-      <CustomInput onChange={(x)=>setPassword(x.target.value)} aria-label="Demo input" placeholder="Engine password" />
-      {/* <CustomInput onChange={(x)=>setPower(x.target.value)} aria-label="Demo input" placeholder="Car power  (HP/Nm)" />
-      <CustomInput onChange={(x)=>setPassword(x.target.value)} aria-label="Demo input" placeholder="Password to gallery" /> */}
-    </>
+      <CustomInput onChange={(x)=>setModel(x.target.value)} aria-label="Demo input" placeholder="Type model" />
+      <CustomInput onChange={(x)=>setEngine(x.target.value)} aria-label="Demo input" placeholder="Engine car" />
+      <CustomInput onChange={(x)=>setPower(x.target.value)} aria-label="Demo input" placeholder="Type power car, (300hp/400Nm)" />    </>
     )
   }
 }
