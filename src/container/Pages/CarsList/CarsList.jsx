@@ -1,6 +1,4 @@
 import React, {useState, useEffect} from 'react'
-
-import "./CarsList.scss"
 import UploadForm from '../../../comps/UploadForm.js';
 import ImageGrid from '../../../comps/ImageGrid.tsx';
 import Modal from '../../../comps/Modal.tsx';
@@ -13,20 +11,22 @@ import { AiOutlineEdit, IoChevronBackCircleSharp, motion,IoCloseOutline, useNavi
 import { AiFillCar } from '../../index';
 import { getAuth } from 'firebase/auth';
 import { setSourceMapRange } from 'typescript';
+import "./CarsList.scss"
 
 const CarsList = ({login,loginUp}) => {
     const {render, model, engine, power} = UnstyledInputNewCar()
     const [error, setError] = useState("");
     const [user, setUser] = useState(null)
-
     const [toggleNewCarForm, setToggleNewCarForm] = useState(false)
     const location = useLocation();
+    const cars  = location.state;
     let navigate = useNavigate(); 
-    const data  = location.state;
-    console.log(data)
+    const [selectedCar, setSelectedCar] = useState(cars[0]?cars[0]:null)
+
+    console.log(cars)
     const [uploadOption,setUploadOption] = useState(false);
     const [toggleEdit, setToggleEdit] = useState(false);
-    const [cars, setCars] = useState(null)
+    // const [cars, setCars] = useState(null)
 
     const [selectedImg, setSelectedImg] = useState(null);
     const carsRef = collection(db, 'Cars');
@@ -83,22 +83,28 @@ const CarsList = ({login,loginUp}) => {
     >
       <motion.div className='CarGallery__menu'>
         <div className='CarGallery__menu-back flex' onClick={()=> navigate("/")}>
-          <IoChevronBackCircleSharp size={30} color="rgb(14, 255, 86)"/>
-            <h3>back to cars</h3>
+          <IoChevronBackCircleSharp size={25} color="rgb(14, 255, 86)"/>
+            <h3>back to main page</h3>
         </div>
 
         <div className='CarGallery__menu-edit flex' onClick={()=> setToggleNewCarForm(true)}>
-           <AiOutlineEdit size={30} color="rgb(14, 255, 86)"/>
+           <AiOutlineEdit size={26} color="rgb(14, 255, 86)"/>
         </div>
-            
-        {cars?.map((car)=>{
-            <div className='CarGallery__cars_list'>
-                {car.model}
-            </div>
+        <h3 style={{textAlign:'left', width:"85%", marginTop:"100px", color:"gray"}}>My cars in gallery</h3> 
+        {cars?.map((car)=> {
+          return (
+              <div className='CarGallery__car' onClick={()=>setSelectedCar(car)}>
+                 <div className='image'></div>
+                 <div className='car__informations'>
+                   <div className='header__info'>{car.model} <small>{car.engine}</small></div>
+                   <div> <i>Car power: </i>{car.power}</div>
+                 </div>    
+              </div>         
+          )
         })}
  
         {/* <h1>{dataCar.model}</h1>   */}
-        <div className='CarGallery__menu-dataCar'>
+        {/* <div className='CarGallery__menu-dataCar'> */}
 
           {/* <text>Engine: {dataCar.engine}</text> */}
           {/* <text>Power: {dataCar.power}</text> */}
@@ -107,9 +113,12 @@ const CarsList = ({login,loginUp}) => {
               {/* <UploadForm car={dataCar.model} idCar={dataCar.idCar}/>                    */}
           </div>}
 
-        </div>
+        {/* </div> */}
       </motion.div>  
      <div className='CarGallery__images background-image'>
+          <div style={{marginLeft:'20px'}}>
+              <UploadForm selectedCar={selectedCar}/>                   
+          </div>
         {/* <ImageGrid login={login} setSelectedImg={setSelectedImg} idCar={dataCar.idCar}/> */}
                 { selectedImg && (
                   <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} />

@@ -1,81 +1,292 @@
-.CarGallery__cars_list {
-    background-color: 'red';
-    width: 200px;
-    height: 300px;
-
-    z-index: 20;
-}
-
-
-.Login-form{
-    flex-direction: column;
+.CarGallery{
     display: flex;
-    align-content: flex-start;
-    justify-content: flex-start;
-    position: fixed;
-    top:14%;
-    z-index: 5;
+    position:relative;
+    cursor: none;
 
-    padding: 5rem 2rem;
+    height: auto;
+    min-height: 100vh;
 
-    background: rgb(0,2,36);
-    //    background: rgba(39, 39, 40, .5);
-    background: linear-gradient(259deg, rgb(4, 9, 97) 20%, rgba(25, 57, 128, 0.931) 54%, rgba(14,48,94,1) 100%);
-    border-radius: 15px;
+    background-color:rgb(0,2,36);
 
-    font-size:20px;
-    color: rgba(255, 255, 255, 0.699);
-    font-family: 'Courier New', monospace;
+    color: white;
+    font-size: 12px;
 
-    h3{
-        max-width: 280px;
-        letter-spacing: 3px;
-    }
+    .CarGallery__menu{
+      position: fixed;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
 
-    .Login__icon-button{        
-        width: 150px;
-        height: 35px;
-        margin-top: 10px;
+      width: 25%;
+      height: 100vh;
 
-        border: 1px solid rgba(248, 248, 248, 0.531);
-        border-radius: 10px;
+      background: rgb(0,2,36);
+      background: linear-gradient(119deg, rgb(4, 9, 97) 20%, rgba(25, 57, 128, 0.931) 54%, rgba(14,48,94,1) 100%);
 
-        &:hover{
-            background: rgba(1, 1, 93, .6);
-            border: none;
-            transition: all ease;
-            transition-duration: .5s;
+      color: white;
+      text-align: center;
+      font-weight: 700;
+      font-family: 'Courier New', monospace;
+
+      .CarGallery__car {
+        display: flex;
+        align-items: center;
+        padding: 12px;
+        width: 80%;
+        background-color: rgba(25, 57, 128, 0.931);
+        border-radius: 15px;
+
+        &:hover {
+          background-color: rgba(67, 109, 201, 0.531);
+          transition: all ease;
+          transition-duration: .5s;
         }
-    }
 
-    .Login__icon-exit{
-        position: absolute;
-        top:20px;
-        right:20px;
+        .image {
+            width: 40px;
+            height: 40px;
 
-        border-radius: 0px 20px 20px 0px;
-
-        &:hover{
-            scale: 1.2;
-            transition: all ease;
-            transition-duration: .5s;
+            border-radius: 10px;
+            background-color: rgba(97, 94, 94, .3);
         }
-    }
 
-    @media screen and (max-width:654px){
-        width:100%;       
-        padding: .5rem;    
-        height: 100%;   
+        .car__informations {
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;     
 
-        left:auto;
-        top:0px;
+            margin-left: 10px;            
 
-        .addCar__icon-button{
-            bottom:5rem;
+            .header__info {
+                letter-spacing: 2px;
+                font-size: 20px;
+                // background-color: bisque;
 
-            @media screen and (max-height:669px){
-                bottom:2.25rem;
+                small {
+                    font-size: 15px;
+                    color: rgb(5, 227, 53);
+                }
+            }
+            i {
+                color: gray;
             }
         }
-     }
-}
+      }
+
+      .CarGallery__menu-back{
+        position: absolute;
+        display: flex;
+        justify-content: flex-start;
+        padding-left: 15px;
+
+        left: 20px;
+        top:20px;
+
+        width: 200px;
+
+        background-color: rgba(25, 57, 128, 0.931);
+        border-radius: 15px;
+  
+        h3{
+          margin-left: .7rem;
+        }
+
+     
+      }
+      .CarGallery__menu-edit{
+        position: absolute;
+        right: 20px;
+        top:20px;
+
+        padding: .6rem;
+
+        background-color: rgba(25, 57, 128, 0.931);
+        border-radius: 15px;
+      }
+      
+      .CarGallery__menu-edit:hover, .CarGallery__menu-back:hover{
+        background-color: rgba(67, 109, 201, 0.531);
+        transition: all ease;
+        transition-duration: .5s;
+      }
+
+      .CarGallery__menu-dataCar{
+        display: flex;
+        flex-direction: column;
+
+        padding: .8rem;
+        max-width: 80%;
+
+        background-color: rgba(25, 57, 128, 0.931);
+        border-radius: 15px;
+
+        p{
+          color: rgb(14, 255, 86);
+          font-size: 18px;
+          font-weight: 700;
+        }
+        text{
+          margin: .7rem 0rem;
+        }
+      }
+      @media screen and (max-width:950px){
+        position: relative;
+      }
+    }
+
+    .CarGallery__images{
+      display:flex;
+
+      width: 75%;
+      margin-left: 25%;
+      min-height: 100vh;
+      height:auto;
+  
+      background-color:rgb(0,2,36);
+
+      .heart-icon{
+        left: 25px;
+        bottom: 60px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+
+        background-color: rgba(0, 0, 0, 0.55);
+
+        width: 65px;
+        height: 35px;
+        border-radius: 11px;
+
+        text{
+          margin-left: .7rem;
+        }
+        @media screen and (max-width:954px){
+         left: 5px;
+         }
+
+         .heart-icon-fa{
+           margin-top: 5px;
+         }
+      }
+
+      .date-img{
+        position: absolute;
+        bottom: 65px;
+        right: 30px;
+
+        width: fit-content;
+
+        color: rgb(255, 255, 255);
+        font-weight: 600;
+
+        @media screen and (max-width:954px){
+          right: 10px;
+        }
+      }
+
+      @media screen and (max-width:954px){
+        width: 100%;
+        height: fit-content;
+        min-height: auto;
+
+        margin-left: 0px;
+       }
+    }
+    
+  
+    @media screen and (max-width:950px){
+      flex-direction: column;
+
+      .CarGallery__menu{
+        width: 100%;
+        height: 70vh;
+      }
+    }
+    .CarGallery__login{
+      flex-direction: column;
+      position:absolute;
+      top:35%;
+      left: 37%;
+      z-index: 4;
+
+      width: 25%;
+      height: 25vh;
+      padding: 1rem;
+
+      background: rgb(0,2,36);
+      background: linear-gradient(259deg, rgb(4, 9, 97) 20%, rgba(25, 57, 128, 0.931) 54%, rgba(14,48,94,1) 100%);
+      border-radius: 15px;
+
+      color: white;
+      font-family: 'Courier New', monospace;
+      text-align: center;
+
+      text{
+        font-size:20px;
+        padding: 2rem;
+      }
+      .CarGallery__login-main{
+        width: 100%;
+
+        flex-direction: row;
+
+
+        input{
+          width: 80%;
+          padding: 12px 12px;
+          margin:8px;
+  
+          font-size: 1rem;
+          font-weight: 400;
+          line-height: 1.5;
+          text-align:center;
+  
+          background: rgb(150, 174, 231);
+        
+          border-radius: 8px;
+      
+          opacity:.7;
+  
+        
+          &:hover {
+            border-color: rgb(14, 255, 86);
+            opacity:1;
+          }
+        
+          &:focus {
+            outline: 1.5px solid rgb(14, 255, 86);
+            opacity:1;
+          }
+        }
+  
+        .CarGallery__login-exit{
+          width: 60px;
+          height: 50px;
+
+          margin:8px;
+  
+  
+          background: rgb(150, 174, 231);
+          border-radius: 8px;
+  
+          &:hover{
+            background-color: rgba(238, 30, 30, 0.931);
+          }
+        }
+      }
+
+      
+      @media screen and (max-width:950px){
+        top:15%;
+        left: 5%;
+
+        width: 80%;
+        height: 25vh;
+        padding: 1rem;
+      }
+    }
+  }
+  

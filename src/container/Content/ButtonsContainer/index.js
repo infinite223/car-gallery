@@ -73,11 +73,12 @@ const ButtonsContainer = (props) => {
   }
 
   const getData = async () => {
-    const data = await getDocs(carsRef);
-    const myCars = await ((data.docs.map((doc)=>({...doc.data(), id:doc.id}))))
-    // setCars(myCars.filter((car)=>car.uidUser==user.uid))
-    {myCars!=null&&navigate('/CarsList', myCars)}
-    // await navigate('/CarsList', {cars: myCars})
+    await getDocs(carsRef).then( async (data)=>
+      {
+        const myCars = await ((data.docs.map((doc)=>({...doc.data(), id:doc.id}))))
+        await navigate('/CarsList', {state:myCars.filter((car)=>car.uidUser===user.uid)})
+      }
+    );
   }
 
   return (

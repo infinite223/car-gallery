@@ -39,7 +39,7 @@ const UploadForm = (props) => {
       <div className="output">
         { error && <div className="error">{ error }</div>}
         { file && <div>{ file.name }</div> }
-        { file && <ProgressBar file={file} setFile={setFile} car={props.car} idCar={props.idCar} /> }
+        { file && <ProgressBar file={file} setFile={setFile} selectedCar={props.selectedCar} /> }
       </div>
     </form>
   );

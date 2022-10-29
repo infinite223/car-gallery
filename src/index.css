@@ -28,13 +28,14 @@ label input{
 }
 label{
   display: block;
-  width: 100px;
-  height: 45px;
+  width: 150px;
+  height: 150px;
 
-  background-color: rgba(71, 106, 180, 0.931);
+  background-color: rgba(9, 89, 181, 0.539);
   border-radius: 15px;
 
-  font-size: 30px;
+  font-size: 50px;
+  color: gray;
 }
 label:hover{
   background-color: rgba(67, 109, 201, 0.531);
