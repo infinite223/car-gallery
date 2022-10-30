@@ -13,23 +13,10 @@ import { getAuth } from 'firebase/auth';
 import { setSourceMapRange } from 'typescript';
 import "./CarsList.scss"
 
-const CarsList = ({login,loginUp}) => {
+const CarsList = ({login}) => {
     const {render, model, engine, power} = UnstyledInputNewCar()
     const [error, setError] = useState("");
     const [user, setUser] = useState(null)
-    const [toggleNewCarForm, setToggleNewCarForm] = useState(false)
-    const location = useLocation();
-    const cars  = location.state;
-    let navigate = useNavigate(); 
-    const [selectedCar, setSelectedCar] = useState(cars[0]?cars[0]:null)
-
-    console.log(cars)
-    const [uploadOption,setUploadOption] = useState(false);
-    const [toggleEdit, setToggleEdit] = useState(false);
-    // const [cars, setCars] = useState(null)
-
-    const [selectedImg, setSelectedImg] = useState(null);
-    const carsRef = collection(db, 'Cars');
 
     useEffect(() => {
       const unsubscribe = getAuth().onAuthStateChanged(
@@ -45,18 +32,31 @@ const CarsList = ({login,loginUp}) => {
       )
 
       return unsubscribe;
+    }, [user])
+
+    const [toggleNewCarForm, setToggleNewCarForm] = useState(false)
+    const location = useLocation();
+    const carsFromLocation  = location.state;
+    const [cars, setCars] = useState(carsFromLocation)
+    let navigate = useNavigate(); 
+    const [selectedCar, setSelectedCar] = useState(cars[0]?cars[0]:null)
+
+    const [uploadOption,setUploadOption] = useState(false);
+    const [toggleEdit, setToggleEdit] = useState(false);
+
+
+    const [selectedImg, setSelectedImg] = useState(null);
+    const carsRef = collection(db, 'Cars');
+
+    useEffect(() => {
+        const getData = async () => {
+            const data = await getDocs(carsRef);
+            const myCars = ((data.docs.map((doc)=>({...doc.data(), id:doc.id}))))
+            setCars(myCars.filter((car)=>car.uidUser==user.uid))
+        }
+
+        getData()
     }, [])
-
-    // useEffect(() => {
-    //     const getData = async () => {
-    //         const data = await getDocs(carsRef);
-    //         const myCars = ((data.docs.map((doc)=>({...doc.data(), id:doc.id}))))
-    //         console.log(myCars)
-    //         setCars(myCars.filter((car)=>car.uidUser==user.uid))
-    //     }
-
-    //     getData()
-    // }, [])
     
 
 
@@ -116,13 +116,15 @@ const CarsList = ({login,loginUp}) => {
         {/* </div> */}
       </motion.div>  
      <div className='CarGallery__images background-image'>
-          <div style={{marginLeft:'20px'}}>
+          <div style={{right:'20px', position:'fixed', zIndex:20}}>
               <UploadForm selectedCar={selectedCar}/>                   
           </div>
-        {/* <ImageGrid login={login} setSelectedImg={setSelectedImg} idCar={dataCar.idCar}/> */}
+        
+          {(selectedCar && user)&&<ImageGrid setSelectedImg={setSelectedImg} images={selectedCar.image} userAuthUid={user.uid}/>}
                 { selectedImg && (
                   <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} />
                 )}    
+          
       </div>
 
       {toggleNewCarForm&&

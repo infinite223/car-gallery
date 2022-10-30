@@ -28,20 +28,20 @@ label input{
 }
 label{
   display: block;
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
 
-  background-color: rgba(9, 89, 181, 0.539);
-  border-radius: 15px;
+  background: radial-gradient(circle,  rgba(14,48,94,1) 10%, rgba(25, 57, 128, 0.931) 34%, rgb(4, 9, 97) 100%);
+  border-radius: 35px;
 
   font-size: 50px;
-  color: gray;
+  color: rgb(212, 210, 210);
 }
 label:hover{
-  background-color: rgba(67, 109, 201, 0.531);
+  background-color: rgba(2, 39, 118, 0.931);
   transition: all ease;
   transition-duration: .5s;
-  color: rgb(25, 211, 81);
+  color: rgb(3, 192, 60);
 }
 .output{
   margin-top: 1rem;

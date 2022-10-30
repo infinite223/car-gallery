@@ -29,12 +29,13 @@ const UploadForm = (props) => {
 
   return (
     <form className='uploadImage'>
-      <label className='flex'>
+      <label className='flex' style={{flexDirection:'column'}}>
         <input 
              type="file"
              onChange={(event) => handleCompressedUpload(event)}
         />
         <span>+</span>
+        <span style={{fontSize:11}}>Upload image</span>
       </label>
       <div className="output">
         { error && <div className="error">{ error }</div>}
