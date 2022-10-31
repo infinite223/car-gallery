@@ -11,7 +11,7 @@ import ButtonsContainer from './ButtonsContainer/index';
 
 const Content = ({login}) => {
   const [cars, setCars] = useState([]);
-  const carsCollectionRef = collection(db, "Car")
+  const carsCollectionRef = collection(db, "Cars")
   const [toggle, setToggle] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -20,11 +20,11 @@ const Content = ({login}) => {
   useEffect(() => {
     const getCars = async () =>{  
       const data = await getDocs(carsCollectionRef);
-      setCars(data.docs.map((doc)=>({...doc.data(),id:doc.id})))
+      setCars(data.docs.map((doc)=>({...doc.data(), id:doc.id})))
       await setLoading(true)
     }
     getCars();
-  },[toggle]);
+  },[]);
 
   return (
     <>
@@ -48,7 +48,7 @@ const Content = ({login}) => {
               )
             })}
           </div>
-          <ButtonsContainer lastId={cars.map((car)=>{return car.idCar})} toggle={()=>setToggle(!toggle)}/>  
+          <ButtonsContainer toggle={()=>setToggle(!toggle)}/>  
         </div>
       </motion.div>
       :<div className='loading__cars flex'>

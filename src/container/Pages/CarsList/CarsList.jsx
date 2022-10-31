@@ -48,6 +48,22 @@ const CarsList = ({login}) => {
     const [selectedImg, setSelectedImg] = useState(null);
     const carsRef = collection(db, 'Cars');
 
+    const newCar = async () => {
+      console.log(model, engine, power)
+      if(model!==""){
+          await addDoc(carsRef, 
+            {
+              uidUser: user.uid,
+              model: model,
+              engine: engine,
+              power: power,
+            });
+            setToggleNewCarForm(false)
+        }else{
+          setError("Brak wprowadzonych danych!")
+        }
+  }
+
     useEffect(() => {
         const getData = async () => {
             const data = await getDocs(carsRef);
@@ -56,25 +72,8 @@ const CarsList = ({login}) => {
         }
 
         getData()
-    }, [])
+    }, [newCar])
     
-
-
-    const newCar = async () => {
-        console.log(model, engine, power)
-        if(model!==""){
-            await addDoc(carsRef, 
-              {
-                uidUser: user.uid,
-                model: model,
-                engine: engine,
-                power: power,
-              });
-              setToggleNewCarForm(false)
-          }else{
-            setError("Brak wprowadzonych danych!")
-          }
-    }
 
   return (
     <motion.div className='CarGallery'
@@ -94,7 +93,9 @@ const CarsList = ({login}) => {
         {cars?.map((car)=> {
           return (
               <div className='CarGallery__car' onClick={()=>setSelectedCar(car)}>
-                 <div className='image'></div>
+                 <div className='image'>
+                  {car.image?.[0]&&<img className='image' src={car.image[0].url}/>}
+                 </div>
                  <div className='car__informations'>
                    <div className='header__info'>{car.model} <small>{car.engine}</small></div>
                    <div> <i>Car power: </i>{car.power}</div>

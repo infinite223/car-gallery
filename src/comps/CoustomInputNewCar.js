@@ -37,7 +37,7 @@ const StyledInputElement = styled('input')(
   opacity:.7;
   text-align:left;
   outline: none;
-  color:"white";
+  color:white;
 
   &:hover {
     

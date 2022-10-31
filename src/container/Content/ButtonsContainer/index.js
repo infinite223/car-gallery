@@ -36,29 +36,29 @@ const ButtonsContainer = (props) => {
     return unsubscribe;
   }, [])
 
-  console.log(user)
+
   let navigate = useNavigate(); 
   const carsRef = collection(db, 'Cars');
   const [cars, setCars] = useState(null)
 
   const [scrolled,setScrolled]=React.useState(false);
-  const handleScroll=() => {
-    const offset=window.scrollY;
-    if(offset > 200 ){
-      setScrolled(true);
-    }
-    else{
-      setScrolled(false);
-    }
-  }
+  // const handleScroll=() => {
+  //   const offset=window.scrollY;
+  //   if(offset > 200 ){
+  //     setScrolled(true);
+  //   }
+  //   else{
+  //     setScrolled(false);
+  //   }
+  // }
 
-  useEffect(() => {
-    window.addEventListener('scroll',handleScroll)
-  })
-  let navbarClasses=['addCar'];
-  if(scrolled){
-    navbarClasses.push('scrolled');
-  }
+  // useEffect(() => {
+  //   window.addEventListener('scroll',handleScroll)
+  // })
+  // let navbarClasses=['addCar'];
+  // if(scrolled){
+  //   navbarClasses.push('scrolled');
+  // }
 
   const login = () => {
     signInWithEmailAndPassword(getAuth(), email, password)

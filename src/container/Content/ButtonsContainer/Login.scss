@@ -61,8 +61,11 @@
     }
     
     @media screen and (max-width:754px){
-        width:65px;      
-        height: 65px; 
+        flex-direction: column;
+       align-items: flex-end;
+        gap: 7px;
+        // width:65px;      
+        // height: 65px; 
 
         right: 10px;
     }
