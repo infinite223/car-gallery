@@ -42,16 +42,16 @@ nav{
         display: flex;
         align-items: center;
         justify-content: center;
-        right: -20px;
+        top: 20px;
+        right: 20px;
         
-        width: 40px;
-        height: 55px;
+        padding: 8px 10px;
 
-        background-color: rgba(103, 128, 182, 0.931);
+        background-color: rgba(32, 69, 148, 0.931);
         border-radius: 20px;
         
         &:hover{
-            background-color: rgb(14, 255, 86);
+            background-color: rgb(7, 169, 55);
             transition: all ease;
             transition-duration: .5s;
         }
@@ -66,11 +66,10 @@ nav{
             display: flex;
             align-items: center;
             justify-content: center;
-            bottom: -20px;
-            right:auto;
+            top: 20px;
+            right: 20px;
 
-            width: 75px;
-            height: 40px;
+           padding: 8px 10px;
         }
     }
 }

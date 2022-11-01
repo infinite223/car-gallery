@@ -23,7 +23,7 @@ const Navbar = () => {
             </motion.div>
 
             <motion.div className='navbar__icon-exit' onClick={()=>setDisplay("none")} >
-              <IoCloseOutline size={30} color='rgba(34, 40, 51, 0.831)'/>
+              <IoCloseOutline size={30} color='rgba(222, 222, 222, 0.831)'/>
             </motion.div>
             
             <motion.span

@@ -8,12 +8,14 @@ import Modal from '../../../comps/Modal.tsx';
 import { AiOutlineEdit, IoChevronBackCircleSharp, motion,IoCloseOutline, useNavigate, useLocation } from '../../index'
 
 import { getAuth } from 'firebase/auth';
+import userEvent from '@testing-library/user-event';
 
 const CarGallery = ({login,loginUp}) => {
     const location = useLocation<any>();
+    const [user, setUser] = useState<any>(null)
     let navigate = useNavigate(); 
-    const {cars} = location.state;
-    console.log(location.state)
+    const car:any = location.state.dataCar;
+    console.log(car.image)
     const [uploadOption,setUploadOption] = useState(false);
     const [toggleEdit, setToggleEdit] = useState(false);
     const [border, setBorder] = useState("1px solid white");  
@@ -24,10 +26,7 @@ const CarGallery = ({login,loginUp}) => {
       const unsubscribe = getAuth().onAuthStateChanged(
         userAuth => {
           if(userAuth){
-            console.log(userAuth)
-          }
-          else{
-            navigate("/")
+            setUser(userAuth)
           }
         }
       )
@@ -45,28 +44,20 @@ const CarGallery = ({login,loginUp}) => {
           <IoChevronBackCircleSharp size={30} color="rgb(14, 255, 86)"/>
             <h3>back to cars</h3>
         </div>
-
-        <div className='CarGallery__menu-edit flex' onClick={()=> !login?setToggleEdit(true):(loginUp(""),setUploadOption(false))}>
-           <AiOutlineEdit size={30} color="rgb(14, 255, 86)"/>
-        </div>
  
         {/* <h1>{dataCar.model}</h1>   */}
-        <div className='CarGallery__menu-dataCar'>
+        <div className='CarGallery__menu-dataCar' style={{marginTop:"90px"}}>
           <p>Some information about the car</p>
-          {/* <text>Engine: {dataCar.engine}</text> */}
-          {/* <text>Power: {dataCar.power}</text> */}
-
-          {uploadOption&&<div className='CarGallery__menu-upload'>
-              {/* <UploadForm car={dataCar.model} idCar={dataCar.idCar}/>                    */}
-          </div>}
-
+          <text>Engine: {car.engine}</text>
+          <text>Power: {car.power}</text>
         </div>
       </motion.div>  
-     <div className='CarGallery__images background-image'>
-        {/* <ImageGrid login={login} setSelectedImg={setSelectedImg} idCar={dataCar.idCar}/> */}
+      <div className='CarGallery__images background-image'>      
+              {car.image &&<ImageGrid setSelectedImg={setSelectedImg} images={car.image} userAuthUid={user?user.uid:''}/>}
                 { selectedImg && (
                   <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} />
                 )}    
+          
       </div>
 
       {toggleEdit&&<div className='CarGallery__login flex'>

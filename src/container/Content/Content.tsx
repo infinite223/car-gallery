@@ -33,12 +33,12 @@ const Content = ({login}) => {
         animate={{opacity:[.6,.65,.7,.8,.9,1]}}
         transition={{ duration: .3 }} 
       >
-        <div className='content__bestImage flex'>
+        {/* <div className='content__bestImage flex'>
           <h1 className='flex'>Best photo in gallery</h1>
           <img className='bestImage flex' src={bestImg}/>
 
           <div className='icon flex'><FaArrowDown size={55} color='white'/></div>
-        </div>
+        </div> */}
         <div className='content__gallery flex'>
           <h1><text className='content__h1-cars'>{cars.length}</text> Cars in Gallery</h1>
           <div className='content__cars flex'>
