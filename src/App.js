@@ -4,7 +4,7 @@ import DotRing from "./comps/DotRing/DotRing";
 import MainPage from './container/Pages/MainPage/MainPage.tsx';
 import CarGallery from './container/Pages/CarGallery/CarGallery.tsx';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import CarsList from './container/Pages/CarsList/CarsList';
+import MyCarsGallery from './container/Pages/MyCarsGallery/MyCarsGallery';
 
 function App() {
   const [login, setLogin] = useState("");
@@ -15,7 +15,7 @@ function App() {
       <Routes>      
         <Route path="/" element={ <MainPage/>} />   
         <Route path="/CarGallery" element={<CarGallery/>} />  
-        <Route path="/CarsList" element={<CarsList/>} />          
+        <Route path="/MyCarsGallery" element={<MyCarsGallery/>} />          
       </Routes>     
     </Router>
     </div>

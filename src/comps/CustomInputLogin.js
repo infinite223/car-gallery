@@ -37,7 +37,7 @@ const StyledInputElement = styled('input')(
   opacity:.7;
   text-align:left;
   outline: none;
-  color:"white";
+  color:white;
 
   &:hover {
     
@@ -54,7 +54,7 @@ const StyledInputElement = styled('input')(
 
 const CustomInput = React.forwardRef(function CustomInput(props, ref) {
   return (
-    <InputUnstyled components={{ Input: StyledInputElement }} {...props} ref={ref} />
+    <InputUnstyled type={props.password?'password':''} components={{ Input: StyledInputElement }} {...props} ref={ref} />
   );
 });
 
@@ -70,9 +70,7 @@ export default function UnstyledInput() {
     render:(
     <>
       <CustomInput onChange={(x)=>setEmail(x.target.value)} aria-label="Demo input" placeholder="Type email" />
-      <CustomInput onChange={(x)=>setPassword(x.target.value)} aria-label="Demo input" placeholder="Engine password" />
-      {/* <CustomInput onChange={(x)=>setPower(x.target.value)} aria-label="Demo input" placeholder="Car power  (HP/Nm)" />
-      <CustomInput onChange={(x)=>setPassword(x.target.value)} aria-label="Demo input" placeholder="Password to gallery" /> */}
+      <CustomInput onChange={(x)=>setPassword(x.target.value)} type='password' aria-label="Demo input" placeholder="Engine password" />
     </>
     )
   }

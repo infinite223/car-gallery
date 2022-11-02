@@ -42,33 +42,16 @@ const ButtonsContainer = (props) => {
   const [cars, setCars] = useState(null)
 
   const [scrolled,setScrolled]=React.useState(false);
-  // const handleScroll=() => {
-  //   const offset=window.scrollY;
-  //   if(offset > 200 ){
-  //     setScrolled(true);
-  //   }
-  //   else{
-  //     setScrolled(false);
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   window.addEventListener('scroll',handleScroll)
-  // })
-  // let navbarClasses=['addCar'];
-  // if(scrolled){
-  //   navbarClasses.push('scrolled');
-  // }
 
   const login = () => {
     signInWithEmailAndPassword(getAuth(), email, password)
-    .then((userAuth)=>navigate('/CarsList', {userAuth}))
-    .catch((e)=>console.log(e))
+    .then((userAuth)=>navigate('/MyCarsGallery', {userAuth}))
+    .catch((e)=>(console.log(e),setError("Bad email or password")))
   } 
 
   const register = () => {
     createUserWithEmailAndPassword(getAuth(), emailReg, passwordReg)
-    .then((userAuth)=>navigate('/CarsList', {userAuth}))
+    .then((userAuth)=>navigate('/MyCarsGallery', {userAuth}))
     .catch((e)=>console.log(e))
   }
 
@@ -76,7 +59,7 @@ const ButtonsContainer = (props) => {
     await getDocs(carsRef).then( async (data)=>
       {
         const myCars = await ((data.docs.map((doc)=>({...doc.data(), id:doc.id}))))
-        await navigate('/CarsList', {state:myCars.filter((car)=>car.uidUser===user.uid)})
+        await navigate('/MyCarsGallery', {state:myCars.filter((car)=>car.uidUser===user.uid)})
       }
     );
   }

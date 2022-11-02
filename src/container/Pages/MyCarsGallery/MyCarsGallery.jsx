@@ -10,10 +10,9 @@ import { addDoc, collection, getDocs } from "firebase/firestore";
 import { AiOutlineEdit, IoChevronBackCircleSharp, motion,IoCloseOutline, useNavigate, useLocation } from '../../index'
 import { AiFillCar } from '../../index';
 import { getAuth } from 'firebase/auth';
-import { setSourceMapRange } from 'typescript';
-import "./CarsList.scss"
+import "./MyCarsGallery.scss"
 
-const CarsList = ({login}) => {
+const MyCarsGallery = ({login}) => {
     const {render, model, engine, power} = UnstyledInputNewCar()
     const [error, setError] = useState("");
     const [user, setUser] = useState(null)
@@ -39,7 +38,7 @@ const CarsList = ({login}) => {
     const carsFromLocation  = location.state;
     const [cars, setCars] = useState(carsFromLocation)
     let navigate = useNavigate(); 
-    const [selectedCar, setSelectedCar] = useState(cars[0]?cars[0]:null)
+    const [selectedCar, setSelectedCar] = useState(cars?.[0]?cars[0]:null)
 
     const [uploadOption,setUploadOption] = useState(false);
     const [toggleEdit, setToggleEdit] = useState(false);
@@ -103,18 +102,10 @@ const CarsList = ({login}) => {
               </div>         
           )
         })}
- 
-        {/* <h1>{dataCar.model}</h1>   */}
-        {/* <div className='CarGallery__menu-dataCar'> */}
-
-          {/* <text>Engine: {dataCar.engine}</text> */}
-          {/* <text>Power: {dataCar.power}</text> */}
 
           {uploadOption&&<div className='CarGallery__menu-upload'>
-              {/* <UploadForm car={dataCar.model} idCar={dataCar.idCar}/>                    */}
           </div>}
 
-        {/* </div> */}
       </motion.div>  
      <div className='CarGallery__images background-image'>
           <div style={{right:'20px', position:'fixed', zIndex:20}}>
@@ -149,4 +140,4 @@ const CarsList = ({login}) => {
   )
 }
 
-export default CarsList
+export default MyCarsGallery

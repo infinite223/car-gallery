@@ -10,7 +10,7 @@ import { AiOutlineEdit, IoChevronBackCircleSharp, motion,IoCloseOutline, useNavi
 import { getAuth } from 'firebase/auth';
 import userEvent from '@testing-library/user-event';
 
-const CarGallery = ({login,loginUp}) => {
+const CarGallery = () => {
     const location = useLocation<any>();
     const [user, setUser] = useState<any>(null)
     let navigate = useNavigate(); 
@@ -44,8 +44,7 @@ const CarGallery = ({login,loginUp}) => {
           <IoChevronBackCircleSharp size={30} color="rgb(14, 255, 86)"/>
             <h3>back to cars</h3>
         </div>
- 
-        {/* <h1>{dataCar.model}</h1>   */}
+        
         <div className='CarGallery__menu-dataCar' style={{marginTop:"90px"}}>
           <p>Some information about the car</p>
           <text>Engine: {car.engine}</text>
@@ -63,9 +62,6 @@ const CarGallery = ({login,loginUp}) => {
       {toggleEdit&&<div className='CarGallery__login flex'>
             <text>Type password to your gallery</text> 
             <div className='CarGallery__login-main flex'>
-              {/* <input style={{  border: border}} type="password" onChange={
-                (x)=>(dataCar.password===x.target.value?(setToggleEdit(false),loginUp(dataCar.idCar),setUploadOption(true)):setBorder("2px solid red"))
-                }/> */}
               <div className='CarGallery__login-exit flex' onClick={()=>setToggleEdit(false)}>
                 <IoCloseOutline size={35} color='rgba(34, 40, 51, 0.831)'/>
               </div>

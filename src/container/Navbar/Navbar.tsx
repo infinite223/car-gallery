@@ -4,7 +4,6 @@ import { useMediaQuery } from 'react-responsive'
 import './Navbar.scss';
 
 import { motion, IoCloseOutline, FaRegImages } from "../index"
-// import { auth } from '../../firebase/config';
 
 const Navbar = () => {
   const [display,setDisplay] = useState("flex");
@@ -37,9 +36,7 @@ const Navbar = () => {
               <text>
                 <p>Your car gallery can be here...</p>
                 <p>Add your car and then pictures!</p>
-              </text>   
-
-              
+              </text>               
              
             </motion.span>            
       </motion.nav>
